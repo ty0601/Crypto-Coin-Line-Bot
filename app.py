@@ -12,9 +12,8 @@ from utils import send_text_message
 
 load_dotenv()
 
-
 machine = TocMachine(
-    states=["user", "state1", "state2"],
+    states=["Tommy", "state1", "state2"],
     transitions=[
         {
             "trigger": "advance",
