@@ -79,7 +79,7 @@ machine = TocMachine(
 
         {"trigger": "go_back", "source": ["introduction", "fsm_graph","cancel"], "dest": "user"},
     ],
-    initial="Tommy",
+    initial="user",
     auto_transitions=False,
     show_conditions=True,
 )

@@ -1,3 +1,7 @@
+import os
+from linebot import LineBotApi
+from linebot.models import TextSendMessage
+
 from transitions.extensions import GraphMachine
 
 from utils import send_text_message
@@ -14,11 +18,11 @@ class TocMachine(GraphMachine):
 
     def is_going_to_coins(self, event):
         text = event.message.text
-        return text.lower()
+        return text.lower() == text
 
     def is_going_to_price(self, event):
         text = event.message.text
-        return text.lower() == "Crypto Coins Price"
+        return text.lower() == "Show Price"
 
     def is_going_to_metadata(self, event):
         text = event.message.text
@@ -38,12 +42,13 @@ class TocMachine(GraphMachine):
 
     def on_enter_menu(self, event):
         reply_token = event.reply_token
+        line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN", None))
+        line_bot_api.reply_message(reply_token, TextSendMessage(text="Menu"))
         send_text_message(reply_token, "on_enter_menu")
 
     def on_enter_coins(self, event):
         reply_token = event.reply_token
         send_text_message(reply_token, "on_enter_coins")
-        self.go_back()
 
     def on_enter_price(self, event):
         reply_token = event.reply_token
