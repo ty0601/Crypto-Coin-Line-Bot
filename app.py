@@ -1,6 +1,7 @@
 import os
 import re
 import sys
+import transitions
 
 from flask import Flask, jsonify, request, abort, send_file
 from dotenv import load_dotenv
@@ -156,7 +157,7 @@ def webhook_handler():
 
 @app.route("/show-fsm", methods=["GET"])
 def show_fsm():
-    machine.get_graph().draw("fsm.png", prog="dot", format="png")
+    machine.get_graph().draw("Fsm.png", prog="dot", format="png")
     return send_file("fsm.png", mimetype="image/png")
 
 
