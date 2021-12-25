@@ -71,9 +71,15 @@ def callback():
         if not isinstance(event.message, TextMessage):
             continue
         text = event.message.text
-        line_bot_api.reply_message(
-            event.reply_token, TextSendMessage(text[1])
-        )
+
+        if re.match('sticker',text):
+            line_bot_api.reply_message(
+                event.reply_token, StickerSendMessage(package_id='446',sticker_id='1988')
+            )
+        else:
+            line_bot_api.reply_message(
+                event.reply_token, TextSendMessage(text)
+            )
 
 
 
