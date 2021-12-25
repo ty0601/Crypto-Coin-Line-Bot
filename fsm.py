@@ -14,36 +14,34 @@ class TocMachine(GraphMachine):
 
     def is_going_to_menu(self, event):
         text = event.message.text
-        return text.lower() == "MENU"
+        return text.lower() == "menu"
 
     def is_going_to_coins(self, event):
         text = event.message.text
-        return text.lower() == "Coins"
+        return text.lower() == "coins"
 
     def is_going_to_price(self, event):
         text = event.message.text
-        return text.lower() == "Show Price"
+        return text.lower() == "show price"
 
     def is_going_to_metadata(self, event):
         text = event.message.text
-        return text.lower() == "Show Metadata"
+        return text.lower() == "show metadata"
 
     def is_going_to_fsm_graph(self, event):
         text = event.message.text
-        return text.lower() == "Show FSM Graph"
+        return text.lower() == "show fsm graph"
 
     def is_going_to_introduction(self, event):
         text = event.message.text
-        return text.lower() == "Bot Introduction"
+        return text.lower() == "bot introduction"
 
     def is_going_to_cancel(self, event):
         text = event.message.text
-        return text.lower() == "Cancel"
+        return text.lower() == "cancel"
 
     def on_enter_menu(self, event):
         reply_token = event.reply_token
-        line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN", None))
-        line_bot_api.reply_message(reply_token, TextSendMessage(text="Menu"))
         send_text_message(reply_token, "on_enter_menu")
 
     def on_enter_coins(self, event):
