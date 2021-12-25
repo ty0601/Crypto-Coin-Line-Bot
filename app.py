@@ -10,7 +10,7 @@ from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage, StickerSendMessage, ImageSendMessage
 
 from fsm import TocMachine
-from utils import send_text_message,send_image_url,send_button_message
+from utils import send_text_message, send_image_url, send_button_message
 
 load_dotenv()
 
@@ -80,7 +80,7 @@ def callback():
                 event.reply_token, TextSendMessage(movie_detail)
             )
         elif re.match('fsm', text.lower()):
-            send_image_url(event.reply_token,'fsm.png')
+            send_image_url(event.reply_token, 'https://github.com/ty0601/LINE-BOT/raw/master/img/show-fsm.png')
         else:
             line_bot_api.reply_message(
                 event.reply_token, TextSendMessage(text)
