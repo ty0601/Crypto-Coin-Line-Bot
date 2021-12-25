@@ -148,6 +148,7 @@ def webhook_handler():
             continue
         print(f"\nFSM STATE: {machine.state}")
         print(f"REQUEST BODY: \n{body}")
+        show_fsm()
         response = machine.advance(event)
         if not response:
             send_text_message(event.reply_token, "Not Entering any State")
@@ -155,7 +156,7 @@ def webhook_handler():
     return "OK"
 
 
-@app.route("/", methods=["GET"])
+@app.route("/show-fsm", methods=["GET"])
 def show_fsm():
     machine.get_graph().draw("Fsm.png", prog="dot", format="png")
     return send_file("fsm.png", mimetype="image/png")
