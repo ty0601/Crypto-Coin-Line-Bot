@@ -34,7 +34,7 @@ class TocMachine(GraphMachine):
 
     def is_going_to_introduction(self, event):
         text = event.message.text
-        return text.lower() == "bot introduction"
+        return text.lower() == "introduction"
 
     def is_going_to_cancel(self, event):
         text = event.message.text
@@ -63,7 +63,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_introduction(self, event):
         reply_token = event.reply_token
-        send_text_message(reply_token, "on_enter_metadata")
+        send_text_message(reply_token, "on_enter_introduction")
         self.go_back()
 
     def on_enter_cancel(self, event):
