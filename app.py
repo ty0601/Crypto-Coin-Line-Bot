@@ -10,7 +10,7 @@ from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage, StickerSendMessage, ImageSendMessage
 
 from fsm import TocMachine
-from utils import send_text_message
+from utils import send_text_message,send_image_url,send_button_message
 
 load_dotenv()
 
@@ -35,7 +35,6 @@ machine = TocMachine(
     auto_transitions=False,
     show_conditions=True,
 )
-
 app = Flask(__name__, static_url_path="")
 
 # get channel_secret and channel_access_token from your environment variable
@@ -72,19 +71,20 @@ def callback():
         if not isinstance(event.message, TextMessage):
             continue
         text = event.message.text
-        if re.match('sticker', text):
+        if re.match('sticker', text.lower()):
             line_bot_api.reply_message(
                 event.reply_token, StickerSendMessage(package_id='446', sticker_id='1988')
             )
-        elif re.match('latest', text):
+        elif re.match('latest', text.lower()):
             line_bot_api.reply_message(
                 event.reply_token, TextSendMessage(movie_detail)
             )
+        elif re.match('fsm', text.lower()):
+            send_image_url(event.reply_token,'fsm.png')
         else:
             line_bot_api.reply_message(
                 event.reply_token, TextSendMessage(text)
             )
-
     return "OK"
 
 
