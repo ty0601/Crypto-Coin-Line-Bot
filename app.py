@@ -1,13 +1,13 @@
 import os
 import re
 import sys
-import api
 
+from api import movie_detail
 from flask import Flask, jsonify, request, abort, send_file
 from dotenv import load_dotenv
 from linebot import LineBotApi, WebhookParser
 from linebot.exceptions import InvalidSignatureError
-from linebot.models import MessageEvent, TextMessage, TextSendMessage, StickerSendMessage
+from linebot.models import MessageEvent, TextMessage, TextSendMessage, StickerSendMessage, ImageSendMessage
 
 from fsm import TocMachine
 from utils import send_text_message
@@ -15,23 +15,23 @@ from utils import send_text_message
 load_dotenv()
 
 machine = TocMachine(
-    states=["user", "state1", "state2"],
+    states=["Tommy", "state1", "state2"],
     transitions=[
         {
             "trigger": "advance",
-            "source": "user",
+            "source": "Tommy",
             "dest": "state1",
             "conditions": "is_going_to_state1",
         },
         {
             "trigger": "advance",
-            "source": "user",
+            "source": "Tommy",
             "dest": "state2",
             "conditions": "is_going_to_state2",
         },
-        {"trigger": "go_back", "source": ["state1", "state2"], "dest": "user"},
+        {"trigger": "go_back", "source": ["state1", "state2"], "dest": "Tommy"},
     ],
-    initial="user",
+    initial="Tommy",
     auto_transitions=False,
     show_conditions=True,
 )
@@ -78,7 +78,7 @@ def callback():
             )
         elif re.match('latest', text):
             line_bot_api.reply_message(
-                event.reply_token, TextSendMessage(api.movie_detail)
+                event.reply_token, TextSendMessage(machine.advance)
             )
         else:
             line_bot_api.reply_message(
@@ -112,7 +112,7 @@ def webhook_handler():
         print(f"\nFSM STATE: {machine.state}")
         print(f"REQUEST BODY: \n{body}")
         response = machine.advance(event)
-        if response == False:
+        if not response:
             send_text_message(event.reply_token, "Not Entering any State")
 
     return "OK"
