@@ -13,7 +13,7 @@ from utils import send_text_message
 load_dotenv()
 
 machine = TocMachine(
-    states=["Tommy", "state1", "state2"],
+    states=["user", "state1", "state2"],
     transitions=[
         {
             "trigger": "advance",
@@ -72,7 +72,7 @@ def callback():
             continue
 
         line_bot_api.reply_message(
-            event.reply_token, TextSendMessage(text=event.message.text)
+            event.reply_token, TextSendMessage('lol')
         )
 
     return "OK"
