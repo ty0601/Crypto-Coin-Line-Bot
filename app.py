@@ -66,10 +66,10 @@ def callback():
 
     # if event is MessageEvent and message is TextMessage, then echo text
     for event in events:
-        if not isinstance(event, MessageEvent):
-            continue
-        if not isinstance(event.message, TextMessage):
-            continue
+        # if not isinstance(event, MessageEvent):
+        #     continue
+        # if not isinstance(event.message, TextMessage):
+        #     continue
 
         line_bot_api.reply_message(
             event.reply_token, TextSendMessage(TextMessage)
@@ -108,7 +108,7 @@ def webhook_handler():
         print(f"\nFSM STATE: {machine.state}")
         print(f"REQUEST BODY: \n{body}")
         response = machine.advance(event)
-        if response == False:
+        if not response:
             send_text_message(event.reply_token, "Not Entering any State")
 
     return "OK"
