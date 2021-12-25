@@ -65,8 +65,8 @@ def callback():
         abort(400)
 
     sticker_message = StickerSendMessage(
-        packageId='1',
-        stickerId='1'
+        packageId='446',
+        stickerId='1988'
     )
     # if event is MessageEvent and message is TextMessage, then echo text
     for event in events:
