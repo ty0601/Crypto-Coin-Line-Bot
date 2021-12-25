@@ -76,9 +76,10 @@ def callback():
                 sticker_id='1'
             )
             line_bot_api.reply_message(event.reply_token, sticker_message)
-        line_bot_api.reply_message(
-            event.reply_token, TextSendMessage(TextMessage)
-        )
+        else:
+            line_bot_api.reply_message(
+                event.reply_token, TextSendMessage(TextMessage)
+            )
 
     return "OK"
 
