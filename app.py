@@ -2,7 +2,6 @@ import os
 import re
 import sys
 
-from api import movie_detail
 from flask import Flask, jsonify, request, abort, send_file
 from dotenv import load_dotenv
 from linebot import LineBotApi, WebhookParser
@@ -10,26 +9,75 @@ from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage, StickerSendMessage, ImageSendMessage
 
 from fsm import TocMachine
-from utils import send_text_message, send_image_url, send_button_message
+from utils import send_text_message
 
 load_dotenv()
 
 machine = TocMachine(
-    states=["Tommy", "state1", "state2"],
+    states=["user", "menu", "coins", "price", "metadata", "fsm_graph", "introduction", "cancel"],
     transitions=[
         {
             "trigger": "advance",
-            "source": "Tommy",
-            "dest": "state1",
-            "conditions": "is_going_to_state1",
+            "source": "user",
+            "dest": "menu",
+            "conditions": "is_going_to_menu",
         },
         {
             "trigger": "advance",
-            "source": "Tommy",
-            "dest": "state2",
-            "conditions": "is_going_to_state2",
+            "source": "menu",
+            "dest": "menu",
+            "conditions": "is_going_to_menu",
         },
-        {"trigger": "go_back", "source": ["state1", "state2"], "dest": "Tommy"},
+        {
+            "trigger": "advance",
+            "source": "menu",
+            "dest": "coins",
+            "conditions": "is_going_to_coins",
+        },
+        {
+            "trigger": "advance",
+            "source": "coins",
+            "dest": "menu",
+            "conditions": "is_going_to_menu",
+        },
+        {
+            "trigger": "advance",
+            "source": "coins",
+            "dest": "price",
+            "conditions": "is_going_to_price",
+        },
+        {
+            "trigger": "advance",
+            "source": "coins",
+            "dest": "metadata",
+            "conditions": "is_going_to_metadata",
+        },
+        {
+            "trigger": "advance",
+            "source": "menu",
+            "dest": "introduction",
+            "conditions": "is_going_to_introduction",
+        },
+        {
+            "trigger": "advance",
+            "source": "menu",
+            "dest": "fsm_graph",
+            "conditions": "is_going_to_fsm_graph",
+        },
+        {
+            "trigger": "advance",
+            "source": "price",
+            "dest": "cancel",
+            "conditions": "is_going_to_cancel",
+        },
+        {
+            "trigger": "advance",
+            "source": "metadata",
+            "dest": "cancel",
+            "conditions": "is_going_to_cancel",
+        },
+
+        {"trigger": "go_back", "source": ["introduction", "fsm_graph","cancel"], "dest": "user"},
     ],
     initial="Tommy",
     auto_transitions=False,
@@ -70,21 +118,9 @@ def callback():
             continue
         if not isinstance(event.message, TextMessage):
             continue
-        text = event.message.text
-        if re.match('sticker', text.lower()):
-            line_bot_api.reply_message(
-                event.reply_token, StickerSendMessage(package_id='446', sticker_id='1988')
-            )
-        elif re.match('latest', text.lower()):
-            line_bot_api.reply_message(
-                event.reply_token, TextSendMessage(movie_detail)
-            )
-        elif re.match('fsm', text.lower()):
-            send_image_url(event.reply_token, 'https://github.com/ty0601/LINE-BOT/raw/master/img/show-fsm.png')
-        else:
-            line_bot_api.reply_message(
-                event.reply_token, TextSendMessage(text)
-            )
+        line_bot_api.reply_message(
+            event.reply_token, TextSendMessage(text=event.message.text)
+        )
     return "OK"
 
 

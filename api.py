@@ -1,23 +1,54 @@
 import requests
+import os
 
-url = 'https://api.themoviedb.org/3/movie/now_playing?api_key=ae84f682cf50c20d864e92f56ee3c947&language=en-US&page=1'
-
+price_url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
+metadata_url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/info'
 headers = {
     'Accepts': 'application/json',
-    'api_key': 'ae84f682cf50c20d864e92f56ee3c947'
+    'X-CMC_PRO_API_KEY': os.getenv("coinsKey", None)
 }
 parameters = {
-    'api_key': 'ae84f682cf50c20d864e92f56ee3c947'
+    'start': '1',
+    'limit': '10',
+    'convert': 'USD'
 }
 
-json = requests.get(url, params=parameters, headers=headers).json()
 
-movies = json['results']
-movie_detail = ''
-i = 0
-for x in movies:
-    if i > 4: break
-    movie_detail += 'Movie : ' + x['title'] + '\n' + \
-                    'Release Date : ' + x['release_date'] + '\n' + \
-                    'Overview : \n' + x['overview'] + '\n\n'
-    i += 1
+def get_coin_price():
+    json = requests.get(price_url, params=parameters, headers=headers).json()
+    coins = json['data']
+    data = []
+    for row in coins:
+        row_data = []
+        row_data.append(row['name'])
+        row_data.append(row['symbol'])
+        row_data.append(row['quote']['USD']['price'])
+        row_data.append(row['quote']['USD']['percent_change_1h'])
+        row_data.append(row['quote']['USD']['percent_change_24h'])
+        row_data.append(row['quote']['USD']['percent_change_7d'])
+        row_data.append(row['quote']['USD']['percent_change_30d'])
+        data.append(row_data)
+    return data
+
+
+def get_metadata():
+    json = requests.get(price_url, params=parameters, headers=headers).json()
+    coins = json['data']
+    data = []
+    for row in coins:
+        row_data = []
+        row_data.append(row['data']['1']['logo'])
+        row_data.append(row['data']['1']['name'])
+        row_data.append(row['data']['1']['urls']['website'])
+        row_data.append(row['data']['1']['urls']['technical_doc'])
+        data.append(row_data)
+    return data
+
+
+
+
+
+
+
+
+

@@ -13,13 +13,10 @@ def send_text_message(reply_token, text):
     return "OK"
 
 
+"""
 def send_image_url(id, img_url):
-    line_bot_api = LineBotApi(channel_access_token)
-    line_bot_api.reply_message(id, ImageSendMessage(
-        preview_image_url=img_url,
-        original_content_url=img_url
-    ))
     pass
 
 def send_button_message(id, text, buttons):
     pass
+"""
