@@ -76,6 +76,7 @@ def callback():
         )
         if 'sticker' == event.message.text:
             sticker_message = StickerSendMessage(
+                type='sticker',
                 packageId='1',
                 stickerId='1'
             )
