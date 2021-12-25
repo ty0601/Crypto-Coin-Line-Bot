@@ -13,7 +13,7 @@ parameters = {
 json = requests.get(url, params=parameters, headers=headers).json()
 
 movies = json['results']
-movie_detail = ''
+movie_detail: str = ''
 for x in movies:
     movie_detail += 'Movie : ' + x['title'] + '\n' + \
                    'Release Date : ' + x['release_date'] + '\n' + \
