@@ -74,12 +74,12 @@ def callback():
         line_bot_api.reply_message(
             event.reply_token, TextSendMessage(TextMessage)
         )
-        if re.Match('sticker', TextMessage):
-            sticker_message = StickerSendMessage(
-                package_id='1',
-                sticker_id='1'
-            )
-            line_bot_api.reply_message(event.reply_token, sticker_message)
+        # if re.Match('sticker', TextMessage):
+        #     sticker_message = StickerSendMessage(
+        #         package_id='1',
+        #         sticker_id='1'
+        #     )
+        #     line_bot_api.reply_message(event.reply_token, sticker_message)
 
     return "OK"
 
