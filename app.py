@@ -70,7 +70,7 @@ def callback():
             continue
         if not isinstance(event.message, TextMessage):
             continue
-        if re.Match('sticker'):
+        if re.Match('sticker', TextMessage):
             sticker_message = StickerSendMessage(
                 package_id='1',
                 sticker_id='1'
