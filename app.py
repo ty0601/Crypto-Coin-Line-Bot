@@ -72,7 +72,7 @@ def callback():
         #     continue
 
         line_bot_api.reply_message(
-            event.reply_token, TextSendMessage('jsadjapsj')
+            event.reply_token, TextSendMessage(events.messege.text)
         )
 
     return "OK"
