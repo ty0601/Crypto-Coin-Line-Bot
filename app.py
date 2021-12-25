@@ -68,7 +68,7 @@ def callback():
     for event in events:
         if not isinstance(event, MessageEvent):
             continue
-        if not isinstance(event.message, TextMessage):
+        if not isinstance('lol', TextMessage):
             continue
 
         # line_bot_api.reply_message(
