@@ -66,13 +66,13 @@ def callback():
 
     # if event is MessageEvent and message is TextMessage, then echo text
     for event in events:
-        # if not isinstance(event, MessageEvent):
-        #     continue
-        # if not isinstance(event.message, TextMessage):
-        #     continue
+        if not isinstance(event, MessageEvent):
+            continue
+        if not isinstance(event.message, TextMessage):
+            continue
 
         line_bot_api.reply_message(
-            event.reply_token, TextSendMessage(events.messege.text)
+            event.reply_token, TextSendMessage(events.message.text)
         )
 
     return "OK"
