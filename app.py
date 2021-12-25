@@ -64,10 +64,6 @@ def callback():
     except InvalidSignatureError:
         abort(400)
 
-    sticker_message = StickerSendMessage(
-        packageId='446',
-        stickerId='1988'
-    )
     # if event is MessageEvent and message is TextMessage, then echo text
     for event in events:
         if not isinstance(event, MessageEvent):
@@ -75,10 +71,9 @@ def callback():
         if not isinstance(event.message, TextMessage):
             continue
         text = event.message.text
-        line_bot_api.reply_message(event.reply_token, sticker_message)
-        # line_bot_api.reply_message(
-        #     event.reply_token, TextSendMessage(text)
-        # )
+        line_bot_api.reply_message(
+            event.reply_token, TextSendMessage(text[1])
+        )
 
 
 
