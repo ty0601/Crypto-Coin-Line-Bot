@@ -17,4 +17,4 @@ movies = json['results']
 for x in movies:
     movie_detail = 'Movie : ' + x['title'] + '\n' + \
                    'Release Date : ' + x['release_date'] + '\n' + \
-                   'Overview' + x['overview']
+                   'Overview : \n\t' + x['overview']
