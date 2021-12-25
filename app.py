@@ -1,6 +1,7 @@
 import os
 import re
 import sys
+import api
 
 from flask import Flask, jsonify, request, abort, send_file
 from dotenv import load_dotenv
@@ -71,17 +72,18 @@ def callback():
         if not isinstance(event.message, TextMessage):
             continue
         text = event.message.text
-
-        if re.match('sticker',text):
+        if re.match('sticker', text):
             line_bot_api.reply_message(
-                event.reply_token, StickerSendMessage(package_id='446',sticker_id='1988')
+                event.reply_token, StickerSendMessage(package_id='446', sticker_id='1988')
+            )
+        elif re.match('latest', text):
+            line_bot_api.reply_message(
+                event.reply_token, TextSendMessage(api.movie_detail)
             )
         else:
             line_bot_api.reply_message(
                 event.reply_token, TextSendMessage(text)
             )
-
-
 
     return "OK"
 
