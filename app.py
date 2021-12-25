@@ -78,7 +78,7 @@ def callback():
             )
         elif re.match('latest', text):
             line_bot_api.reply_message(
-                event.reply_token, TextSendMessage(machine.advance)
+                event.reply_token, TextSendMessage(movie_detail)
             )
         else:
             line_bot_api.reply_message(
