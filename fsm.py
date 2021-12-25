@@ -30,7 +30,7 @@ class TocMachine(GraphMachine):
 
     def is_going_to_fsm_graph(self, event):
         text = event.message.text
-        return text.lower() == "show fsm graph"
+        return text.lower() == "fsm"
 
     def is_going_to_introduction(self, event):
         text = event.message.text
@@ -58,7 +58,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_fsm_graph(self, event):
         reply_token = event.reply_token
-        send_image_url(reply_token, 'https://github.com/ty0601/LINE-BOT/blob/master/fsm.png?raw=true')
+        send_image_url(reply_token, 'https://raw.githubusercontent.com/ty0601/LINE-BOT/master/img/show-fsm.png?token=ARDPLX3VSVVJ7FTCNPRBXFDB2CW54')
         self.go_back()
 
     def on_enter_introduction(self, event):
