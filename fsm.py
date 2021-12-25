@@ -4,7 +4,7 @@ from linebot.models import TextSendMessage
 
 from transitions.extensions import GraphMachine
 
-from utils import send_text_message
+from utils import send_text_message, send_image_url
 from api import get_metadata, get_coin_price
 
 
@@ -58,7 +58,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_fsm_graph(self, event):
         reply_token = event.reply_token
-        send_text_message(reply_token, "on_enter_fsm_graph")
+        send_image_url(reply_token, "https://github.com/ty0601/LINE-BOT/blob/master/fsm.png?raw=true")
         self.go_back()
 
     def on_enter_introduction(self, event):
