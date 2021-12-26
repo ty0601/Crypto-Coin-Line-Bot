@@ -61,6 +61,12 @@ machine = TocMachine(
         },
         {
             "trigger": "advance",
+            "source": "introduction",
+            "dest": "menu",
+            "conditions": "is_going_to_menu",
+        },
+        {
+            "trigger": "advance",
             "source": "menu",
             "dest": "fsm_graph",
             "conditions": "is_going_to_fsm_graph",
@@ -78,7 +84,7 @@ machine = TocMachine(
             "conditions": "is_going_to_cancel",
         },
 
-        {"trigger": "go_back", "source": ["introduction", "fsm_graph", "cancel"], "dest": "user"},
+        {"trigger": "go_back", "source": ["fsm_graph", "cancel"], "dest": "user"},
     ],
     initial="user",
     auto_transitions=False,

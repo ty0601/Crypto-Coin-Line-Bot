@@ -41,7 +41,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_menu(self, event):
         reply_token = event.reply_token
-        reply_message = FlexSendMessage("open menu", message_json.menu)
+        reply_message = FlexSendMessage("open menu", message_json.main_menu)
         line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
         line_bot_api.reply_message(reply_token, reply_message)
 
@@ -66,8 +66,9 @@ class TocMachine(GraphMachine):
 
     def on_enter_introduction(self, event):
         reply_token = event.reply_token
-        send_text_message(reply_token, "on_enter_introduction")
-        self.go_back()
+        reply_message = FlexSendMessage("open menu", message_json.introduction)
+        line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
+        line_bot_api.reply_message(reply_token, reply_message)
 
     def on_enter_cancel(self, event):
         reply_token = event.reply_token
