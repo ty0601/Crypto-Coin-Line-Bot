@@ -16,24 +16,22 @@ def get_all_coins_price():
         'convert': 'USD'
     }
     coin_json = requests.get(price_url, params=parameters, headers=headers).json()
+    coins = coin_json['data']
+    data = []
+    for row in coins:
+        row_data = []
+        row_data.append(row['name'])
+        row_data.append(row['symbol'])
+        row_data.append(round(row['quote']['USD']['price'], 2))
+        row_data.append(round(row['quote']['USD']['market_cap']))
+        row_data.append(round(row['quote']['USD']['volume_24h']))
+        row_data.append(round(row['quote']['USD']['percent_change_1h'], 4))
+        row_data.append(round(row['quote']['USD']['percent_change_24h'], 4))
+        row_data.append(round(row['quote']['USD']['percent_change_7d'], 4))
+        row_data.append(round(row['quote']['USD']['percent_change_30d'], 4))
+        data.append(row_data)
+    return data
 
-    if 'data' in coin_json:
-        coins = coin_json['data']
-        data = []
-        for row in coins:
-            row_data = []
-            row_data.append(row['name'])
-            row_data.append(row['symbol'])
-            row_data.append(round(row['quote']['USD']['price'], 2))
-            row_data.append(round(row['quote']['USD']['market_cap']))
-            row_data.append(round(row['quote']['USD']['volume_24h']))
-            row_data.append(round(row['quote']['USD']['percent_change_1h'], 4))
-            row_data.append(round(row['quote']['USD']['percent_change_24h'], 4))
-            row_data.append(round(row['quote']['USD']['percent_change_7d'], 4))
-            row_data.append(round(row['quote']['USD']['percent_change_30d'], 4))
-            data.append(row_data)
-        return data
-    return []
 
 """
 def get_coin_metadata(coin):
