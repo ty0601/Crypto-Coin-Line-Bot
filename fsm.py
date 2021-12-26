@@ -4,7 +4,7 @@ from linebot import LineBotApi
 from linebot.models import TextSendMessage, FlexSendMessage
 from transitions.extensions import GraphMachine
 from utils import send_text_message, send_image_url
-from api import get_metadata, get_coin_price
+from api import get_coin_price, get_coin_metadata
 
 
 class TocMachine(GraphMachine):
