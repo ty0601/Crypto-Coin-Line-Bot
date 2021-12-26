@@ -79,9 +79,21 @@ machine = TocMachine(
         },
         {
             "trigger": "advance",
+            "source": "price",
+            "dest": "coins",
+            "conditions": "is_going_to_coins",
+        },
+        {
+            "trigger": "advance",
             "source": "metadata",
             "dest": "cancel",
             "conditions": "is_going_to_cancel",
+        },
+        {
+            "trigger": "advance",
+            "source": "metadata",
+            "dest": "coins",
+            "conditions": "is_going_to_coins",
         },
 
         {"trigger": "go_back", "source": ["fsm_graph", "cancel"], "dest": "user"},
