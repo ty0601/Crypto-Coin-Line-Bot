@@ -78,7 +78,7 @@ machine = TocMachine(
             "conditions": "is_going_to_cancel",
         },
 
-        {"trigger": "go_back", "source": ["introduction", "fsm_graph","cancel"], "dest": "user"},
+        {"trigger": "go_back", "source": ["introduction", "fsm_graph", "cancel"], "dest": "user"},
     ],
     initial="user",
     auto_transitions=False,
@@ -164,4 +164,3 @@ def show_fsm():
 if __name__ == "__main__":
     port = os.environ.get("PORT", 8000)
     app.run(host="0.0.0.0", port=port, debug=True)
-

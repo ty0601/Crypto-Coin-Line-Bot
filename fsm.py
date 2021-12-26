@@ -22,11 +22,11 @@ class TocMachine(GraphMachine):
 
     def is_going_to_price(self, event):
         text = event.message.text
-        return text.lower() == "show price"
+        return text.lower() == "price"
 
     def is_going_to_metadata(self, event):
         text = event.message.text
-        return text.lower() == "show metadata"
+        return text.lower() == "metadata"
 
     def is_going_to_fsm_graph(self, event):
         text = event.message.text
