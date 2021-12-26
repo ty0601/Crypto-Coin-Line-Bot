@@ -4,7 +4,7 @@ from linebot import LineBotApi
 from linebot.models import TextSendMessage, FlexSendMessage
 from transitions.extensions import GraphMachine
 from utils import send_text_message, send_image_url
-from api import get_coin_price, get_coin_metadata
+from api import get_coin_price, get_coin_metadata,check_coin
 
 
 class TocMachine(GraphMachine):
@@ -17,7 +17,7 @@ class TocMachine(GraphMachine):
 
     def is_going_to_coin_menu(self, event):
         text = event.message.text
-        return True
+        return (text.lower() == "choose coins") or check_coin(text)
 
     def is_going_to_coins(self, event):
         text = event.message.text
@@ -51,14 +51,15 @@ class TocMachine(GraphMachine):
 
     def on_enter_coins(self, event):
         reply_token = event.reply_token
-        reply_message = FlexSendMessage("open menu", message_json.coin_menu)
+        reply_message = FlexSendMessage("open menu", message_json.choose_coin)
         line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
         line_bot_api.reply_message(reply_token, reply_message)
 
     def on_enter_coin_menu(self, event):
         reply_token = event.reply_token
-        reply_token = event.reply_token
-        send_text_message(reply_token, "on_enter_coin_menu")
+        reply_message = FlexSendMessage("open menu", message_json.coin_menu)
+        line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
+        line_bot_api.reply_message(reply_token, reply_message)
 
     def on_enter_price(self, event):
         reply_token = event.reply_token

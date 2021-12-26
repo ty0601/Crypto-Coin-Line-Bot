@@ -352,7 +352,7 @@ introduction = {
     }
 }
 
-coin_menu = {
+choose_coin = {
     "type": "carousel",
     "contents": [
         {
@@ -387,9 +387,9 @@ coin_menu = {
                         "contents": [
                             {
                                 "type": "text",
-                                "text": "[Coin Symbol]",
+                                "text": "[Coin Symbol Example]",
                                 "color": "#8C8C8C",
-                                "size": "14px",
+                                "size": "13px",
                                 "wrap": True,
                                 "align": "center"
                             }
@@ -420,3 +420,81 @@ coin_menu = {
     ]
 }
 
+coin_menu = {
+    "type": "bubble",
+    "size": "kilo",
+    "header": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+            {
+                "type": "text",
+                "text": "Price / Metadata",
+                "align": "center",
+                "size": "24px",
+                "weight": "bold"
+            }
+        ],
+        "paddingBottom": "5px"
+    },
+    "body": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "md",
+        "contents": [
+            {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                    {
+                        "type": "button",
+                        "action": {
+                            "type": "message",
+                            "label": "Show Price",
+                            "text": "price"
+                        },
+                        "color": "#ffffff"
+                    }
+                ],
+                "backgroundColor": "#7F7F7F",
+                "cornerRadius": "10px"
+            },
+            {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                    {
+                        "type": "button",
+                        "action": {
+                            "type": "message",
+                            "label": "Show Metadata",
+                            "text": "metadata"
+                        },
+                        "color": "#ffffff"
+                    }
+                ],
+                "cornerRadius": "10px",
+                "backgroundColor": "#595959"
+            },
+            {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                    {
+                        "type": "button",
+                        "action": {
+                            "type": "message",
+                            "label": "Choose Other Coins",
+                            "text": "choose coins"
+                        },
+                        "color": "#ffffff"
+                    }
+                ],
+                "cornerRadius": "10px",
+                "backgroundColor": "#404040"
+            }
+        ],
+        "offsetBottom": "15px",
+        "paddingBottom": "5px"
+    }
+}

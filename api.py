@@ -13,6 +13,7 @@ parameters = {
     'convert': 'USD'
 }
 
+
 def get_all_coins_price():
     json = requests.get(price_url, params=parameters, headers=headers).json()
     coins = json['data']
@@ -59,3 +60,11 @@ def get_coin_metadata(coin):
         if coinArray[i][1].lower == coin:
             return coinArray[i]
     return []
+
+
+def check_coin(coin):
+    coinArray = get_all_coins_price()
+    for i in range(0, 100):
+        if (coinArray[i][1].lower == coin):
+            return True
+    return False
