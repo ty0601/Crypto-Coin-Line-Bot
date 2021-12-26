@@ -5,112 +5,64 @@ menu = {
             "type": "bubble",
             "hero": {
                 "type": "image",
-                "url": "https://i.imgur.com/lFq9NTg.jpg",
                 "size": "full",
-                "aspectMode": "fit",
-                "aspectRatio": "1.25:1"
+                "aspectRatio": "20:13",
+                "aspectMode": "cover",
+                "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNIVL73MsdTLq3_8Pmu76bsb8XfhblqQ3TFw&usqp=CAU"
             },
             "footer": {
                 "type": "box",
                 "layout": "vertical",
+                "spacing": "lg",
                 "contents": [
                     {
                         "type": "button",
+                        "style": "primary",
                         "action": {
-                            "type": "message",
-                            "label": "介紹與說明",
-                            "text": "功能介紹與說明"
+                            "type": "uri",
+                            "label": "Intorduction",
+                            "uri": "https://linecorp.com"
                         },
-                        "height": "md",
-                        "color": "#ff9900",
-                        "style": "primary"
+                        "color": "#22BB7C"
                     }
-                ],
-                "spacing": "lg"
+                ]
             }
         },
         {
             "type": "bubble",
             "hero": {
                 "type": "image",
-                "url": "https://i.imgur.com/V2tkpQb.png",
                 "size": "full",
-                "aspectMode": "fit",
-                "aspectRatio": "1.25:1"
+                "aspectRatio": "20:13",
+                "aspectMode": "cover",
+                "url": "https://image.shutterstock.com/image-vector/cryptocurrency-logo-collected-main-64-260nw-1910148376.jpg"
             },
             "footer": {
                 "type": "box",
                 "layout": "vertical",
+                "spacing": "lg",
                 "contents": [
                     {
                         "type": "button",
+                        "style": "primary",
                         "action": {
-                            "type": "message",
-                            "label": "即時查詢",
-                            "text": "查詢即時匯率"
+                            "type": "uri",
+                            "label": "Crypto Coins",
+                            "uri": "https://linecorp.comhttps://linecorp.comhttps://linecorp.com"
                         },
-                        "height": "md",
-                        "color": "#ff6666",
-                        "style": "primary"
+                        "color": "#FEC72D"
                     }
-                ],
-                "spacing": "lg"
+                ]
             }
         },
         {
             "type": "bubble",
             "hero": {
                 "type": "image",
-                "url": "https://i.imgur.com/nQaCDXh.png",
                 "size": "full",
-                "aspectMode": "fit",
-                "aspectRatio": "1.25:1"
-            },
-            "footer": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                    {
-                        "type": "button",
-                        "action": {
-                            "type": "message",
-                            "label": "近期趨勢圖",
-                            "text": "查詢趨勢走向"
-                        },
-                        "height": "md",
-                        "color": "#ff66b3",
-                        "style": "primary"
-                    }
-                ],
-                "spacing": "lg"
-            }
-        },
-        {
-            "type": "bubble",
-            "hero": {
-                "type": "image",
-                "url": "https://i.imgur.com/UrSkoW4.png",
-                "size": "full",
-                "aspectMode": "fit",
-                "aspectRatio": "1.25:1"
-            },
-            "footer": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                    {
-                        "type": "button",
-                        "action": {
-                            "type": "message",
-                            "label": "推薦與否",
-                            "text": "是否推薦兌幣"
-                        },
-                        "height": "md",
-                        "color": "#b366ff",
-                        "style": "primary"
-                    }
-                ],
-                "spacing": "lg"
+                "aspectRatio": "20:13",
+                "aspectMode": "cover",
+                "url": "https://github.com/ty0601/LINE-BOT/blob/master/fsm.png?raw=true"
             }
         }
     ]
