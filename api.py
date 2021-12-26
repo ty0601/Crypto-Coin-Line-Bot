@@ -1,6 +1,8 @@
 import requests
 import os
 
+from itsdangerous import json
+
 price_url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
 metadata_url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/info'
 headers = {
@@ -15,20 +17,20 @@ def get_all_coins_price():
         'limit': '100',
         'convert': 'USD'
     }
-    json = requests.get(price_url, params=parameters, headers=headers).json()
+    coin = requests.get(price_url, params=parameters, headers=headers).json()
 
     data = []
-    for row in json:
+    for row in coin:
         row_data = []
-        row_data.append(row['data']['name'])
-        row_data.append(row['data']['symbol'])
-        row_data.append(round(row['data']['quote']['USD']['price'], 2))
-        row_data.append(round(row['data']['quote']['USD']['market_cap']))
-        row_data.append(round(row['data']['quote']['USD']['volume_24h']))
-        row_data.append(round(row['data']['quote']['USD']['percent_change_1h'], 4))
-        row_data.append(round(row['data']['quote']['USD']['percent_change_24h'], 4))
-        row_data.append(round(row['data']['quote']['USD']['percent_change_7d'], 4))
-        row_data.append(round(row['data']['quote']['USD']['percent_change_30d'], 4))
+        row_data.append(json.loads(row['data']['name']))
+        row_data.append(json.loads(row['data']['symbol']))
+        row_data.append(json.loads(round(row['data']['quote']['USD']['price'], 2)))
+        row_data.append(json.loads(round(row['data']['quote']['USD']['market_cap'])))
+        row_data.append(json.loads(round(row['data']['quote']['USD']['volume_24h'])))
+        row_data.append(json.loads(round(row['data']['quote']['USD']['percent_change_1h'], 4)))
+        row_data.append(json.loads(round(row['data']['quote']['USD']['percent_change_24h'], 4)))
+        row_data.append(json.loads(round(row['data']['quote']['USD']['percent_change_7d'], 4)))
+        row_data.append(json.loads(round(row['data']['quote']['USD']['percent_change_30d'], 4)))
         data.append(row_data)
     return data
 
@@ -38,8 +40,8 @@ def get_coin_metadata(coin):
     parameters_metadata = {
         "symbol": coin
     }
-    json = requests.get(metadata_url, params=parameters_metadata, headers=headers).json()
-    coin_data = json['data'][coin.upper()]
+    coin = requests.get(metadata_url, params=parameters_metadata, headers=headers).json()
+    coin_data = coin['data'][coin.upper()]
     data = []
     data.append(coin_data['name'])
     data.append(coin_data['symbol'])
