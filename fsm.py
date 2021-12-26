@@ -29,11 +29,11 @@ class TocMachine(GraphMachine):
 
     def is_going_to_fsm_graph(self, event):
         text = event.message.text
-        return text.lower() == "fsm"
+        return text.lower() == "show fsm graph"
 
     def is_going_to_introduction(self, event):
         text = event.message.text
-        return text.lower() == "introduction"
+        return text.lower() == "show introduction"
 
     def is_going_to_cancel(self, event):
         text = event.message.text
