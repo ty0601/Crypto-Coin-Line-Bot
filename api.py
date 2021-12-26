@@ -56,5 +56,6 @@ def get_coin_price(coin):
     coinArray = get_all_coins_price()
     for i in range(len(coinArray)):
         if coinArray[i][1].lower() == coin:
+            print(coinArray[i])
             return coinArray[i]
     return []
