@@ -6,7 +6,7 @@ from transitions.extensions import GraphMachine
 from utils import send_text_message, send_image_url
 from api import get_coin_price
 
-curr_coin = ''
+curr_coin = 'btc'
 
 
 class TocMachine(GraphMachine):
