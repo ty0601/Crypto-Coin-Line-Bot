@@ -32,7 +32,7 @@ def get_all_coins_price():
 
 
 def get_all_coins_metadata():
-    json = requests.get(price_url, params=parameters, headers=headers).json()
+    json = requests.get(metadata_url, params=parameters, headers=headers).json()
     coins = json['data']
     data = []
     for row in coins:
