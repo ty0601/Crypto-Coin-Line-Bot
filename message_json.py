@@ -562,7 +562,6 @@ price_info = {
                     {
                         "type": "text",
                         "text": "Mrt Cap : ",
-                        "style": "italic",
                         "flex": 0
                     },
                     {
@@ -588,7 +587,6 @@ price_info = {
                     {
                         "type": "text",
                         "text": "Volume : ",
-                        "style": "italic",
                         "flex": 0
                     },
                     {
