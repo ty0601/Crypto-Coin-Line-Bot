@@ -16,7 +16,7 @@ def get_all_coins_price():
         'convert': 'USD'
     }
     coin_json = requests.get(price_url, params=parameters, headers=headers).json
-    if 'data' in coin_json:
+    if "data" in coin_json:
         coins = coin_json['data']
         data = []
         for row in coins:
