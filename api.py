@@ -7,7 +7,7 @@ price_url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest
 metadata_url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/info'
 headers = {
     'Accepts': 'application/json',
-    'X-CMC_PRO_API_KEY': os.getenv('coinsKey', None)
+    'X-CMC_PRO_API_KEY': 'd84ed5d9-4f43-4477-891b-a7ff893da958'
 }
 
 
