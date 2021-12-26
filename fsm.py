@@ -68,11 +68,11 @@ class TocMachine(GraphMachine):
         line_bot_api.reply_message(reply_token, reply_message)
 
     def on_enter_price(self, event):
-        global curr_coin
+        # global curr_coin
         reply_token = event.reply_token
         reply_message = FlexSendMessage("coin price", message_json.price_info)
-        send_text_message(reply_token, curr_coin)
-        coin_price = get_coin_price(curr_coin)
+        # send_text_message(reply_token, curr_coin)
+        # coin_price = get_coin_price(curr_coin)
         # if not coin_price:
         #     send_text_message(reply_token, "Sorry, I can't find the coin")
         # else:
