@@ -197,13 +197,13 @@ introduction = {
                         "text": "Typing \"menu\" to start the bot",
                         "gravity": "center",
                         "flex": 1,
-                        "size": "md",
+                        "size": "17.7px",
                         "color": "#000000"
                     }
                 ],
                 "spacing": "xl",
                 "cornerRadius": "30px",
-                "paddingTop": "5px"
+                "paddingTop": "10px"
             },
             {
                 "type": "box",
@@ -236,14 +236,14 @@ introduction = {
                         "type": "text",
                         "gravity": "center",
                         "flex": 1,
-                        "size": "md",
+                        "size": "17.7px",
                         "text": "Choose the fucnction you want",
                         "color": "#000000"
                     }
                 ],
                 "spacing": "xl",
                 "cornerRadius": "30px",
-                "paddingTop": "5px"
+                "paddingTop": "10px"
             },
             {
                 "type": "box",
@@ -277,13 +277,13 @@ introduction = {
                         "text": "Drag the menu left and right to get more",
                         "gravity": "center",
                         "flex": 1,
-                        "size": "md",
+                        "size": "17.7px",
                         "color": "#000000"
                     }
                 ],
                 "spacing": "xl",
                 "cornerRadius": "30px",
-                "paddingTop": "5px"
+                "paddingTop": "10px"
             },
             {
                 "type": "box",
@@ -317,13 +317,13 @@ introduction = {
                         "text": "Thanks for using",
                         "gravity": "center",
                         "flex": 1,
-                        "size": "md",
+                        "size": "17.7px",
                         "color": "#000000"
                     }
                 ],
                 "spacing": "xl",
                 "cornerRadius": "30px",
-                "paddingTop": "5px"
+                "paddingTop": "10px"
             },
             {
                 "type": "box",
