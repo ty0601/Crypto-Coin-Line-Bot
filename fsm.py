@@ -21,11 +21,13 @@ class TocMachine(GraphMachine):
 
     def is_going_to_price(self, event):
         text = event.message.text
-        return text.lower() == "price"
+        coin = get_coin_price(text)
+        return coin != []
 
     def is_going_to_metadata(self, event):
         text = event.message.text
-        return text.lower() == "metadata"
+        coin = get_coin_metadata(text)
+        return coin != []
 
     def is_going_to_fsm_graph(self, event):
         text = event.message.text
@@ -47,8 +49,9 @@ class TocMachine(GraphMachine):
 
     def on_enter_coins(self, event):
         reply_token = event.reply_token
-        reply_message = FlexSendMessage()
-        send_text_message(reply_token, "on_enter_coins")
+        reply_message = FlexSendMessage("open menu", message_json.coin_menu)
+        line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
+        line_bot_api.reply_message(reply_token, reply_message)
 
     def on_enter_price(self, event):
         reply_token = event.reply_token

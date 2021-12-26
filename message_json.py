@@ -351,3 +351,72 @@ introduction = {
         ]
     }
 }
+
+coin_menu = {
+    "type": "carousel",
+    "contents": [
+        {
+            "type": "bubble",
+            "size": "micro",
+            "header": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Enter Coin",
+                        "color": "#ffffff",
+                        "align": "center",
+                        "size": "lg",
+                        "gravity": "center",
+                        "weight": "bold"
+                    }
+                ],
+                "backgroundColor": "#27ACB2",
+                "paddingTop": "19px",
+                "paddingAll": "12px",
+                "paddingBottom": "16px"
+            },
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "box",
+                        "layout": "horizontal",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "[Coin Symbol]",
+                                "color": "#8C8C8C",
+                                "size": "14px",
+                                "wrap": True,
+                                "align": "center"
+                            }
+                        ],
+                        "flex": 1
+                    },
+                    {
+                        "type": "box",
+                        "layout": "horizontal",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "btc",
+                                "align": "center"
+                            }
+                        ]
+                    }
+                ],
+                "spacing": "md",
+                "paddingAll": "12px"
+            },
+            "styles": {
+                "footer": {
+                    "separator": False
+                }
+            }
+        }
+    ]
+}
+
