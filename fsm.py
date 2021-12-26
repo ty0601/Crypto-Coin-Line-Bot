@@ -74,7 +74,6 @@ class TocMachine(GraphMachine):
         send_text_message(reply_token, curr_coin)
         coin_price = get_coin_price(curr_coin)
         if not coin_price:
-            reply_token = event.reply_token
             send_text_message(reply_token, "Sorry, I can't find the coin")
         else:
             reply_message['body']['contents'][0]['contents'][0]['text'] = coin_price[0] + ' - (' + coin_price[1] + ')'
