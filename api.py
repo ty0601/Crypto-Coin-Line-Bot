@@ -1,6 +1,8 @@
 import requests
 import os
 
+from utils import send_text_message
+
 price_url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
 metadata_url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/info'
 headers = {
@@ -15,10 +17,15 @@ def get_all_coins_price():
         'limit': '100',
         'convert': 'USD'
     }
+    reply_token = os.getenv("LINE_CHANNEL_ACCESS_TOKEN", None)
+    send_text_message(reply_token, "100")
     coin_json = requests.get(price_url, params=parameters, headers=headers).json()
+    send_text_message(reply_token, "200")
     coins = coin_json['data']
+    send_text_message(reply_token, "300")
     data = []
     for row in coins:
+        send_text_message(reply_token, "400")
         row_data = []
         row_data.append(row['name'])
         row_data.append(row['symbol'])
@@ -51,8 +58,12 @@ def get_coin_metadata(coin):
 
 
 def get_coin_price(coin):
+    reply_token = os.getenv("LINE_CHANNEL_ACCESS_TOKEN", None)
+    send_text_message(reply_token, "on")
     coinArray = get_all_coins_price()
+    send_text_message(reply_token, "in")
     for i in range(len(coinArray)):
+        send_text_message(reply_token, "3")
         if coinArray[i][1].lower() == coin:
             return coinArray[i]
     return []
