@@ -17,7 +17,7 @@ def get_all_coins_price():
         'limit': '100',
         'convert': 'USD'
     }
-    coin_json = requests.get(price_url, params=parameters, headers=headers)
+    coin_json = requests.get(price_url, params=parameters, headers=headers).json()
     coins = json.loads(coin_json['data'])
     data = []
     for row in coins:
