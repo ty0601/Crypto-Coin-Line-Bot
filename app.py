@@ -170,6 +170,10 @@ def webhook_handler():
 
     # if event is MessageEvent and message is TextMessage, then echo text
     for event in events:
+        if event.reply_token == "ffffffffffffffffffffffffffffffff":
+            return
+        if event.reply_token == "00000000000000000000000000000000":
+            return
         if not isinstance(event, MessageEvent):
             continue
         if not isinstance(event.message, TextMessage):
