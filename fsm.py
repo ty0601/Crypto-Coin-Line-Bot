@@ -20,7 +20,7 @@ class TocMachine(GraphMachine):
 
     def is_going_to_coins(self, event):
         text = event.message.text
-        return text.lower() == "coins" or text.lower() == "choose coins"
+        return 'coins' in text
 
     def is_going_to_price(self, event):
         text = event.message.text
@@ -62,7 +62,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_price(self, event):
         reply_token = event.reply_token
-        send_text_message(reply_token, "on_enter_price" + self.machine)
+        send_text_message(reply_token, "on_enter_price")
 
     def on_enter_metadata(self, event):
         reply_token = event.reply_token
