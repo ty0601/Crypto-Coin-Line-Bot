@@ -16,7 +16,7 @@ def get_all_coins_price():
         'convert': 'USD'
     }
     json = requests.get(price_url, params=parameters, headers=headers).json()
-    coins = json['data']
+    coins = json["data"]
     data = []
     for row in coins:
         row_data = []
