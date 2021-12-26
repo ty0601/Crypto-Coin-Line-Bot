@@ -13,7 +13,6 @@ parameters = {
     'convert': 'USD'
 }
 
-
 def get_all_coins_price():
     json = requests.get(price_url, params=parameters, headers=headers).json()
     coins = json['data']

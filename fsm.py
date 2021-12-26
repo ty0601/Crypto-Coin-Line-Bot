@@ -17,8 +17,7 @@ class TocMachine(GraphMachine):
 
     def is_going_to_coin_menu(self, event):
         text = event.message.text
-        coin_data = get_coin_price(text)
-        return coin_data != []
+        return True
 
     def is_going_to_coins(self, event):
         text = event.message.text
@@ -26,7 +25,6 @@ class TocMachine(GraphMachine):
 
     def is_going_to_price(self, event):
         text = event.message.text
-        coin = get_coin_price(text)
         return text.lower() == "price"
 
     def is_going_to_metadata(self, event):
@@ -73,7 +71,7 @@ class TocMachine(GraphMachine):
     def on_enter_fsm_graph(self, event):
         reply_token = event.reply_token
         send_image_url(reply_token,
-                       'https://raw.githubusercontent.com/ty0601/LINE-BOT/master/img/show-fsm.png?token=ARDPLX3VSVVJ7FTCNPRBXFDB2CW54')
+                       'https://github.com/ty0601/LINE-BOT/blob/master/fsm.png?raw=true')
         self.go_back()
 
     def on_enter_introduction(self, event):
