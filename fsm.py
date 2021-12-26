@@ -70,7 +70,6 @@ class TocMachine(GraphMachine):
     def on_enter_price(self, event):
         global curr_coin
         reply_token = event.reply_token
-        send_text_message(reply_token, reply_token)
         reply_message = FlexSendMessage("coin price", message_json.price_info)
         coin_price = get_coin_price(curr_coin)
         if not coin_price:
