@@ -42,7 +42,8 @@ class TocMachine(GraphMachine):
     def on_enter_menu(self, event):
         reply_token = event.reply_token
         reply_message = FlexSendMessage("open menu", message_json.menu)
-        send_text_message(reply_token, reply_message)
+        line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
+        line_bot_api.reply_message(reply_token, reply_message)
 
     def on_enter_coins(self, event):
         reply_token = event.reply_token
