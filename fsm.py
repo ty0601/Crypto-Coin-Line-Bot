@@ -73,9 +73,9 @@ class TocMachine(GraphMachine):
         reply_message = FlexSendMessage("coin price", message_json.price_info)
         send_text_message(reply_token, curr_coin)
         coin_price = get_coin_price(curr_coin)
-        if not coin_price:
-            send_text_message(reply_token, "Sorry, I can't find the coin")
-        else:
+        # if not coin_price:
+        #     send_text_message(reply_token, "Sorry, I can't find the coin")
+        # else:
             # reply_message['body']['contents'][0]['contents'][0]['text'] = coin_price[0] + ' - (' + coin_price[1] + ')'
             # reply_message['body']['contents'][1]['contents'][1]['contents'][0]['text'] = '$ ' + coin_price[2]
             # reply_message['body']['contents'][2]['contents'][1]['contents'][0]['text'] = '$ ' + coin_price[3]
