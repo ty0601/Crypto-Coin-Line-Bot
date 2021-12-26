@@ -161,7 +161,7 @@ introduction = {
                 "type": "text",
                 "text": "Instruction",
                 "color": "#000000",
-                "size": "lg",
+                "size": "24px",
                 "weight": "bold",
                 "align": "center"
             },
