@@ -498,3 +498,251 @@ coin_menu = {
         "paddingBottom": "5px"
     }
 }
+
+price_info = {
+    "type": "bubble",
+    "size": "mega",
+    "header": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+            {
+                "type": "text",
+                "text": "PRICE",
+                "size": "24px",
+                "weight": "bold",
+                "align": "center"
+            }
+        ],
+        "paddingBottom": "5px",
+        "backgroundColor": "#FFD966"
+    },
+    "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+            {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Bitcoin - (BTC)",
+                        "size": "18px"
+                    }
+                ],
+                "paddingBottom": "10px"
+            },
+            {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "USD : "
+                    },
+                    {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "$ 50000.00",
+                                "align": "end"
+                            }
+                        ]
+                    }
+                ],
+                "offsetBottom": "5px"
+            },
+            {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Mrt Cap : ",
+                        "style": "italic",
+                        "flex": 0
+                    },
+                    {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "$ 100,000,000,000",
+                                "align": "end"
+                            }
+                        ],
+                        "flex": 1,
+                        "alignItems": "flex-end"
+                    }
+                ],
+                "flex": 1
+            },
+            {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Volume : ",
+                        "style": "italic",
+                        "flex": 0
+                    },
+                    {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "$ 10,000,000,000",
+                                "align": "end"
+                            }
+                        ],
+                        "flex": 1
+                    }
+                ],
+                "paddingBottom": "10px",
+                "flex": 1
+            },
+            {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "1hr :",
+                        "style": "italic",
+                        "flex": 0
+                    },
+                    {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "100%",
+                                "align": "end",
+                                "flex": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "24hr :",
+                        "style": "italic",
+                        "flex": 0
+                    },
+                    {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "100%",
+                                "align": "end"
+                            }
+                        ],
+                        "flex": 1
+                    }
+                ]
+            },
+            {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "7d :",
+                        "flex": 0
+                    },
+                    {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "100%",
+                                "flex": 1,
+                                "align": "end"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "30d : ",
+                        "style": "italic",
+                        "flex": 0
+                    },
+                    {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "100%",
+                                "flex": 1,
+                                "align": "end"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "button",
+                                "action": {
+                                    "type": "message",
+                                    "label": "End Operation",
+                                    "text": "End operation"
+                                }
+                            }
+                        ],
+                        "cornerRadius": "15px",
+                        "backgroundColor": "#FFD966",
+                        "spacing": "xs"
+                    },
+                    {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "button",
+                                "action": {
+                                    "type": "message",
+                                    "label": "Choose Other Coins",
+                                    "text": "Choose Coins"
+                                }
+                            }
+                        ],
+                        "cornerRadius": "15px",
+                        "backgroundColor": "#FFD966"
+                    }
+                ],
+                "spacing": "sm",
+                "offsetTop": "5px"
+            }
+        ]
+    }
+}

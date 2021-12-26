@@ -4,7 +4,9 @@ from linebot import LineBotApi
 from linebot.models import TextSendMessage, FlexSendMessage
 from transitions.extensions import GraphMachine
 from utils import send_text_message, send_image_url
-from api import get_coin_price, get_coin_metadata,check_coin
+from api import get_coin_price, get_coin_metadata, check_coin
+
+curr_coin = ''
 
 
 class TocMachine(GraphMachine):
@@ -16,6 +18,7 @@ class TocMachine(GraphMachine):
         return text.lower() == "menu"
 
     def is_going_to_coin_menu(self, event):
+        curr_coin = event.message.text
         return True
 
     def is_going_to_coins(self, event):
@@ -40,7 +43,7 @@ class TocMachine(GraphMachine):
 
     def is_going_to_cancel(self, event):
         text = event.message.text
-        return text.lower() == "cancel"
+        return text.lower() == "end operation"
 
     def on_enter_menu(self, event):
         reply_token = event.reply_token
@@ -49,6 +52,7 @@ class TocMachine(GraphMachine):
         line_bot_api.reply_message(reply_token, reply_message)
 
     def on_enter_coins(self, event):
+        curr_coin = ''
         reply_token = event.reply_token
         reply_message = FlexSendMessage("choose coin", message_json.choose_coin)
         line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
@@ -62,7 +66,22 @@ class TocMachine(GraphMachine):
 
     def on_enter_price(self, event):
         reply_token = event.reply_token
-        send_text_message(reply_token, "on_enter_price")
+        reply_message = FlexSendMessage("coin price", message_json.price_info)
+        coin_price = get_coin_price(curr_coin)
+        if not coin_price:
+            reply_token = event.reply_token
+            send_text_message(reply_token, "Sorry, I can't find the coin")
+        else:
+            reply_message['body']['contents'][0]['contents'][0]['text'] = coin_price[0] + ' - (' + coin_price[1] + ')'
+            reply_message['body']['contents'][1]['contents'][1]['contents'][0]['text'] = '$ ' + coin_price[2]
+            reply_message['body']['contents'][2]['contents'][1]['contents'][0]['text'] = '$ ' + coin_price[3]
+            reply_message['body']['contents'][3]['contents'][1]['contents'][0]['text'] = '$ ' + coin_price[4]
+            reply_message['body']['contents'][4]['contents'][1]['contents'][0]['text'] = coin_price[4] + '%'
+            reply_message['body']['contents'][5]['contents'][1]['contents'][0]['text'] = coin_price[5] + '%'
+            reply_message['body']['contents'][6]['contents'][1]['contents'][0]['text'] = coin_price[6] + '%'
+            reply_message['body']['contents'][7]['contents'][1]['contents'][0]['text'] = coin_price[7] + '%'
+            line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
+            line_bot_api.reply_message(reply_token, reply_message)
 
     def on_enter_metadata(self, event):
         reply_token = event.reply_token
