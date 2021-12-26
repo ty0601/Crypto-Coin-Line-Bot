@@ -118,7 +118,7 @@ introduction = {
                 "contents": [
                     {
                         "type": "text",
-                        "text": "Data From Coin Market Cap",
+                        "text": "- Data From Coin Market Cap",
                         "color": "#D9D9D9",
                         "size": "md",
                         "flex": 1,
@@ -127,7 +127,7 @@ introduction = {
                     },
                     {
                         "type": "text",
-                        "text": "Get Crypto Price Real-Time",
+                        "text": "- Get Crypto Price Real-Time",
                         "color": "#D9D9D9",
                         "size": "md",
                         "flex": 1,
@@ -136,7 +136,7 @@ introduction = {
                     },
                     {
                         "type": "text",
-                        "text": "Coin's Metadata",
+                        "text": "- Coin's Metadata",
                         "color": "#D9D9D9",
                         "size": "md",
                         "flex": 1,
@@ -190,7 +190,8 @@ introduction = {
                                 "type": "filler"
                             }
                         ],
-                        "flex": 0
+                        "flex": 0,
+                        "paddingAll": "2px"
                     },
                     {
                         "type": "text",
@@ -201,7 +202,7 @@ introduction = {
                         "color": "#000000"
                     }
                 ],
-                "spacing": "xl",
+                "spacing": "md",
                 "cornerRadius": "30px",
                 "paddingTop": "10px"
             },
@@ -230,7 +231,8 @@ introduction = {
                                 "type": "filler"
                             }
                         ],
-                        "flex": 0
+                        "flex": 0,
+                        "paddingAll": "2px"
                     },
                     {
                         "type": "text",
@@ -241,7 +243,7 @@ introduction = {
                         "color": "#000000"
                     }
                 ],
-                "spacing": "xl",
+                "spacing": "md",
                 "cornerRadius": "30px",
                 "paddingTop": "10px"
             },
@@ -270,7 +272,8 @@ introduction = {
                                 "type": "filler"
                             }
                         ],
-                        "flex": 0
+                        "flex": 0,
+                        "paddingAll": "2px"
                     },
                     {
                         "type": "text",
@@ -281,7 +284,7 @@ introduction = {
                         "color": "#000000"
                     }
                 ],
-                "spacing": "xl",
+                "spacing": "md",
                 "cornerRadius": "30px",
                 "paddingTop": "10px"
             },
@@ -310,7 +313,8 @@ introduction = {
                                 "type": "filler"
                             }
                         ],
-                        "flex": 0
+                        "flex": 0,
+                        "paddingAll": "2px"
                     },
                     {
                         "type": "text",
@@ -321,7 +325,7 @@ introduction = {
                         "color": "#000000"
                     }
                 ],
-                "spacing": "xl",
+                "spacing": "md",
                 "cornerRadius": "30px",
                 "paddingTop": "10px"
             },
