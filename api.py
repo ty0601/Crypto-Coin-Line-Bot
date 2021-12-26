@@ -7,14 +7,14 @@ headers = {
     'Accepts': 'application/json',
     'X-CMC_PRO_API_KEY': os.getenv("coinsKey", None)
 }
-parameters = {
-    'start': '1',
-    'limit': '100',
-    'convert': 'USD'
-}
 
 
 def get_all_coins_price():
+    parameters = {
+        'start': '1',
+        'limit': '100',
+        'convert': 'USD'
+    }
     json = requests.get(price_url, params=parameters, headers=headers).json()
     coins = json['data']
     data = []
