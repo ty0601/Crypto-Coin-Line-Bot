@@ -62,7 +62,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_price(self, event):
         reply_token = event.reply_token
-        send_text_message(reply_token, "on_enter_price" + self)
+        send_text_message(reply_token, "on_enter_price" + self.machine)
 
     def on_enter_metadata(self, event):
         reply_token = event.reply_token
