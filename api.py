@@ -21,7 +21,6 @@ def get_all_coins_price():
     coins = coin_json['data']
     data = []
     for row in coins:
-        send_text_message(reply_token, "400")
         row_data = []
         row_data.append(row['name'])
         row_data.append(row['symbol'])
