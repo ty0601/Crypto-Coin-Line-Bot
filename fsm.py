@@ -71,7 +71,7 @@ class TocMachine(GraphMachine):
     def on_enter_fsm_graph(self, event):
         reply_token = event.reply_token
         send_image_url(reply_token,
-                       'https://github.com/ty0601/LINE-BOT/blob/master/fsm.png?raw=true')
+                       'https://github.com/ty0601/LINE-BOT/blob/master/img/show-fsm.png?raw=true')
         self.go_back()
 
     def on_enter_introduction(self, event):
