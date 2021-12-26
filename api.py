@@ -37,11 +37,11 @@ def get_all_coins_metadata():
     data = []
     for row in coins:
         row_data = []
-        row_data.append(row['data']['1']['name'])
-        row_data.append(row['data']['1']['symbol'])
-        row_data.append(row['data']['1']['logo'])
-        row_data.append(row['data']['1']['urls']['website'])
-        row_data.append(row['data']['1']['urls']['technical_doc'])
+        row_data.append(row['name'])
+        row_data.append(row['symbol'])
+        row_data.append(row['1']['logo'])
+        row_data.append(row['1']['urls']['website'])
+        row_data.append(row['1']['urls']['technical_doc'])
         data.append(row_data)
     return data
 
@@ -65,6 +65,6 @@ def get_coin_metadata(coin):
 def check_coin(coin):
     coinArray = get_all_coins_price()
     for i in range(0, 100):
-        if (coinArray[i][1].lower == coin):
+        if coinArray[i][1].lower == coin:
             return True
     return False
