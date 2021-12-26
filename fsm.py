@@ -74,14 +74,14 @@ class TocMachine(GraphMachine):
             reply_token = event.reply_token
             send_text_message(reply_token, "Sorry, I can't find the coin")
         else:
-            reply_message['body']['contents'][0]['contents'][0]['text'] = coin_price[0] + ' - (' + coin_price[1] + ')'
-            reply_message['body']['contents'][1]['contents'][1]['contents'][0]['text'] = '$ ' + coin_price[2]
-            reply_message['body']['contents'][2]['contents'][1]['contents'][0]['text'] = '$ ' + coin_price[3]
-            reply_message['body']['contents'][3]['contents'][1]['contents'][0]['text'] = '$ ' + coin_price[4]
-            reply_message['body']['contents'][4]['contents'][1]['contents'][0]['text'] = coin_price[4] + '%'
-            reply_message['body']['contents'][5]['contents'][1]['contents'][0]['text'] = coin_price[5] + '%'
-            reply_message['body']['contents'][6]['contents'][1]['contents'][0]['text'] = coin_price[6] + '%'
-            reply_message['body']['contents'][7]['contents'][1]['contents'][0]['text'] = coin_price[7] + '%'
+            # reply_message['body']['contents'][0]['contents'][0]['text'] = coin_price[0] + ' - (' + coin_price[1] + ')'
+            # reply_message['body']['contents'][1]['contents'][1]['contents'][0]['text'] = '$ ' + coin_price[2]
+            # reply_message['body']['contents'][2]['contents'][1]['contents'][0]['text'] = '$ ' + coin_price[3]
+            # reply_message['body']['contents'][3]['contents'][1]['contents'][0]['text'] = '$ ' + coin_price[4]
+            # reply_message['body']['contents'][4]['contents'][1]['contents'][0]['text'] = coin_price[4] + '%'
+            # reply_message['body']['contents'][5]['contents'][1]['contents'][0]['text'] = coin_price[5] + '%'
+            # reply_message['body']['contents'][6]['contents'][1]['contents'][0]['text'] = coin_price[6] + '%'
+            # reply_message['body']['contents'][7]['contents'][1]['contents'][0]['text'] = coin_price[7] + '%'
             line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
             line_bot_api.reply_message(reply_token, reply_message)
 
