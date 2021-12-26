@@ -15,12 +15,12 @@ def get_all_coins_price():
         'limit': '100',
         'convert': 'USD'
     }
-    json = requests.get(price_url, params=parameters, headers=headers)
+    json = requests.get(price_url, params=parameters, headers=headers).json()
     coins = json['data']
     data = []
     for row in coins:
         row_data = []
-        row_data.append(row['name'])
+        row_data.append(row["name"])
         row_data.append(row['symbol'])
         row_data.append(round(row['quote']['USD']['price'], 2))
         row_data.append(round(row['quote']['USD']['market_cap']))
