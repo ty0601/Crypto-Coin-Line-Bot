@@ -54,7 +54,7 @@ def get_coin_metadata(coin):
 
 def get_coin_price(coin):
     coinArray = get_all_coins_price()
-    for i in len(coinArray):
+    for i in range(len(coinArray)):
         if coinArray[i][1].lower() == coin:
             return coinArray[i]
     return []
