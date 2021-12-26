@@ -17,10 +17,10 @@ def get_all_coins_price():
         'limit': '100',
         'convert': 'USD'
     }
-    coin = requests.get(price_url, params=parameters, headers=headers).json()
-
+    jsons = requests.get(price_url, params=parameters, headers=headers)
+    # coins = json['data']
     data = []
-    for row in coin:
+    for row in jsons:
         row_data = []
         row_data.append(json.loads(row['data']['name']))
         row_data.append(json.loads(row['data']['symbol']))
@@ -40,8 +40,8 @@ def get_coin_metadata(coin):
     parameters_metadata = {
         "symbol": coin
     }
-    coin = requests.get(metadata_url, params=parameters_metadata, headers=headers).json()
-    coin_data = coin['data'][coin.upper()]
+    json = requests.get(metadata_url, params=parameters_metadata, headers=headers).json()
+    coin_data = json['data'][coin.upper()]
     data = []
     data.append(coin_data['name'])
     data.append(coin_data['symbol'])
