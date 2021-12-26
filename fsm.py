@@ -67,13 +67,13 @@ class TocMachine(GraphMachine):
     def on_enter_price(self, event):
         reply_token = event.reply_token
         reply_message = FlexSendMessage("coin price", message_json.price_info)
-        send_text_message(reply_token, curr_coin)
-        coin_price = get_coin_price(curr_coin)
-        send_text_message(reply_token, "2")
-        if not coin_price:
-            reply_token = event.reply_token
-            send_text_message(reply_token, "Sorry, I can't find the coin")
-        else:
+        # send_text_message(reply_token, curr_coin)
+        # coin_price = get_coin_price(curr_coin)
+        # send_text_message(reply_token, "2")
+        # if not coin_price:
+        #     reply_token = event.reply_token
+        #     send_text_message(reply_token, "Sorry, I can't find the coin")
+        # else:
             # reply_message['body']['contents'][0]['contents'][0]['text'] = coin_price[0] + ' - (' + coin_price[1] + ')'
             # reply_message['body']['contents'][1]['contents'][1]['contents'][0]['text'] = '$ ' + coin_price[2]
             # reply_message['body']['contents'][2]['contents'][1]['contents'][0]['text'] = '$ ' + coin_price[3]
@@ -82,8 +82,8 @@ class TocMachine(GraphMachine):
             # reply_message['body']['contents'][5]['contents'][1]['contents'][0]['text'] = coin_price[5] + '%'
             # reply_message['body']['contents'][6]['contents'][1]['contents'][0]['text'] = coin_price[6] + '%'
             # reply_message['body']['contents'][7]['contents'][1]['contents'][0]['text'] = coin_price[7] + '%'
-            line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
-            line_bot_api.reply_message(reply_token, reply_message)
+        line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
+        line_bot_api.reply_message(reply_token, reply_message)
 
     def on_enter_metadata(self, event):
         reply_token = event.reply_token
