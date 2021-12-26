@@ -56,11 +56,3 @@ def get_coin_price(coin):
         if coinArray[i][1].lower() == coin:
             return coinArray[i]
     return []
-
-
-def check_coin(coin):
-    coinArray = get_all_coins_price()
-    for i in range(0, 100):
-        if coinArray[i][1].lower() == coin:
-            return True
-    return False
