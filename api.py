@@ -33,6 +33,7 @@ def get_all_coins_price():
     return data
 
 
+"""
 def get_coin_metadata(coin):
     parameters_metadata = {
         "symbol": coin
@@ -46,6 +47,7 @@ def get_coin_metadata(coin):
     data.append(coin_data['urls']['website'])
     data.append(coin_data['urls']['technical_doc'])
     return data
+"""
 
 
 def get_coin_price(coin):
