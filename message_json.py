@@ -614,7 +614,6 @@ price_info = {
                     {
                         "type": "text",
                         "text": "1hr :",
-                        "style": "italic",
                         "flex": 0
                     },
                     {
@@ -638,7 +637,6 @@ price_info = {
                     {
                         "type": "text",
                         "text": "24hr :",
-                        "style": "italic",
                         "flex": 0
                     },
                     {
@@ -685,7 +683,6 @@ price_info = {
                     {
                         "type": "text",
                         "text": "30d : ",
-                        "style": "italic",
                         "flex": 0
                     },
                     {
