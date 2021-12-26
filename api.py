@@ -31,31 +31,23 @@ def get_all_coins_price():
     return data
 
 
-def get_all_coins_metadata():
-    json = requests.get(metadata_url, params=parameters, headers=headers).json()
-    coins = json['data']
+def get_coin_metadata(coin):
+    parameters_metadata = {
+        "symbol": coin
+    }
+    json = requests.get(metadata_url, params=parameters_metadata, headers=headers).json()
+    coin_data = json['data'][coin.upper()]
     data = []
-    for row in coins:
-        row_data = []
-        row_data.append(row['name'])
-        row_data.append(row['symbol'])
-        row_data.append(row['1']['logo'])
-        row_data.append(row['1']['urls']['website'])
-        row_data.append(row['1']['urls']['technical_doc'])
-        data.append(row_data)
+    data.append(coin_data['name'])
+    data.append(coin_data['symbol'])
+    data.append(coin_data['logo'])
+    data.append(coin_data['urls']['website'])
+    data.append(coin_data['urls']['technical_doc'])
     return data
 
 
 def get_coin_price(coin):
     coinArray = get_all_coins_price()
-    for i in range(0, 100):
-        if coinArray[i][1].lower == coin:
-            return coinArray[i]
-    return []
-
-
-def get_coin_metadata(coin):
-    coinArray = get_all_coins_metadata()
     for i in range(0, 100):
         if coinArray[i][1].lower == coin:
             return coinArray[i]

@@ -15,9 +15,8 @@ class TocMachine(GraphMachine):
         text = event.message.text
         return text.lower() == "menu"
 
-    def is_going_to_coin_menu(self, event):
-        text = event.message.text
-        return (text.lower() == "choose coins") or check_coin(text)
+    def is_going_to_coin_menu(self):
+        return True
 
     def is_going_to_coins(self, event):
         text = event.message.text
