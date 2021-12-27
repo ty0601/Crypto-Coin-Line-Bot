@@ -35,21 +35,24 @@ def get_all_coins_price():
     return data
 
 
-"""
+
 def get_coin_metadata(coin):
     parameters_metadata = {
         "symbol": coin
     }
+
     json = requests.get(metadata_url, params=parameters_metadata, headers=headers).json()
-    coin_data = json['data'][coin.upper()]
-    data = []
-    data.append(coin_data['name'])
-    data.append(coin_data['symbol'])
-    data.append(coin_data['logo'])
-    data.append(coin_data['urls']['website'])
-    data.append(coin_data['urls']['technical_doc'])
-    return data
-"""
+    if coin in json:
+        coin_data = json['data'][coin.upper()]
+        data = []
+        data.append(coin_data['logo'])
+        data.append(coin_data['name'])
+        data.append(coin_data['symbol'])
+        data.append(coin_data['urls']['website'])
+        data.append(coin_data['urls']['technical_doc'])
+        data.append(coin_data['urls']['source_code'])
+        return data
+    return []
 
 
 def get_coin_price(coin):

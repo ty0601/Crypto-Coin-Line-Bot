@@ -70,13 +70,11 @@ class TocMachine(GraphMachine):
     def on_enter_price(self, event):
         global curr_coin
         reply_token = event.reply_token
-        # reply_message = FlexSendMessage("coin price", message_json.price_info)
         buffer = message_json.price_info
         coin_price = get_coin_price(curr_coin)
         if not coin_price:
             send_text_message(reply_token, "Sorry, I can't find the coin")
         else:
-
             buffer['body']['contents'][0]['contents'][0]['text'] = coin_price[0] + ' - (' + coin_price[1] + ')'
             buffer['body']['contents'][1]['contents'][1]['contents'][0]['text'] = '$ ' + str(coin_price[2])
             buffer['body']['contents'][2]['contents'][1]['contents'][0]['text'] = '$ ' + str(coin_price[3])
@@ -89,8 +87,20 @@ class TocMachine(GraphMachine):
         line_bot_api.reply_message(reply_token, FlexSendMessage("coin price", buffer))
 
     def on_enter_metadata(self, event):
+        global curr_coin
         reply_token = event.reply_token
-        send_text_message(reply_token, "on_enter_metadata")
+        buffer = message_json.price_info
+        coin_data = get_coin_price(curr_coin)
+        if not coin_data:
+            send_text_message(reply_token, "Sorry, I can't find the coin")
+        else:
+            buffer['hero']['url'] = coin_data[0]
+            buffer['body']['contents'][0]['text'] = coin_data[1] + ' - (' + coin_data[2] + ')'
+            buffer['body']['contents'][1]['contents'][0]['contents'][1]['text'] = coin_data[3]
+            buffer['body']['contents'][2]['contents'][0]['contents'][1]['text'] = coin_data[4]
+            buffer['body']['contents'][3]['contents'][0]['contents'][1]['text'] = coin_data[5]
+        line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
+        line_bot_api.reply_message(reply_token, FlexSendMessage("coin price", buffer))
 
     def on_enter_fsm_graph(self, event):
         reply_token = event.reply_token
