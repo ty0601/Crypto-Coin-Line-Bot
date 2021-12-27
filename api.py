@@ -25,13 +25,13 @@ def get_all_coins_price():
         row_data = []
         row_data.append(row['name'])
         row_data.append(row['symbol'])
-        row_data.append(round(row['quote']['USD']['price'], 2))
-        row_data.append(round(row['quote']['USD']['market_cap']))
-        row_data.append(round(row['quote']['USD']['volume_24h']))
-        row_data.append(round(row['quote']['USD']['percent_change_1h'], 4))
-        row_data.append(round(row['quote']['USD']['percent_change_24h'], 4))
-        row_data.append(round(row['quote']['USD']['percent_change_7d'], 4))
-        row_data.append(round(row['quote']['USD']['percent_change_30d'], 4))
+        row_data.append("{:,}".format(round(row['quote']['USD']['price'], 2)))
+        row_data.append("{:,}".format(round(row['quote']['USD']['market_cap'])))
+        row_data.append("{:,}".format(row['quote']['USD']['volume_24h']))
+        row_data.append("{:.2%}".format(row['quote']['USD']['percent_change_1h'], 4))
+        row_data.append("{:.2%}".format(row['quote']['USD']['percent_change_24h'], 4))
+        row_data.append("{:.2%}".format(row['quote']['USD']['percent_change_7d'], 4))
+        row_data.append("{:.2%}".format(row['quote']['USD']['percent_change_30d'], 4))
         data.append(row_data)
     return data
 

@@ -81,10 +81,10 @@ class TocMachine(GraphMachine):
             buffer['body']['contents'][1]['contents'][1]['contents'][0]['text'] = '$ ' + str(coin_price[2])
             buffer['body']['contents'][2]['contents'][1]['contents'][0]['text'] = '$ ' + str(coin_price[3])
             buffer['body']['contents'][3]['contents'][1]['contents'][0]['text'] = '$ ' + str(coin_price[4])
-            buffer['body']['contents'][4]['contents'][1]['contents'][0]['text'] = str(coin_price[4]) + '%'
-            buffer['body']['contents'][5]['contents'][1]['contents'][0]['text'] = str(coin_price[5]) + '%'
-            buffer['body']['contents'][6]['contents'][1]['contents'][0]['text'] = str(coin_price[6]) + '%'
-            buffer['body']['contents'][7]['contents'][1]['contents'][0]['text'] = str(coin_price[7]) + '%'
+            buffer['body']['contents'][4]['contents'][1]['contents'][0]['text'] = str(coin_price[5]) + '%'
+            buffer['body']['contents'][5]['contents'][1]['contents'][0]['text'] = str(coin_price[6]) + '%'
+            buffer['body']['contents'][6]['contents'][1]['contents'][0]['text'] = str(coin_price[7]) + '%'
+            buffer['body']['contents'][7]['contents'][1]['contents'][0]['text'] = str(coin_price[8]) + '%'
         line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
         line_bot_api.reply_message(reply_token, FlexSendMessage("coin price", buffer))
 
