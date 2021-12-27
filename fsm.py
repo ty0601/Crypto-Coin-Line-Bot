@@ -4,7 +4,7 @@ from linebot import LineBotApi
 from linebot.models import TextSendMessage, FlexSendMessage
 from transitions.extensions import GraphMachine
 from utils import send_text_message, send_image_url
-from api import get_coin_price
+from api import get_coin_price, get_coin_metadata
 
 
 class TocMachine(GraphMachine):
@@ -90,7 +90,7 @@ class TocMachine(GraphMachine):
         global curr_coin
         reply_token = event.reply_token
         buffer = message_json.price_info
-        coin_data = get_coin_price(curr_coin)
+        coin_data = get_coin_metadata(curr_coin)
         if not coin_data:
             send_text_message(reply_token, "Sorry, I can't find the coin")
         else:
