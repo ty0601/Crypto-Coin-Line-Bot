@@ -95,7 +95,7 @@ class TocMachine(GraphMachine):
             send_text_message(reply_token, "Sorry, I can't find the coin")
         else:
             buffer['hero']['url'] = coin_data[0]
-        #     buffer['body']['contents'][0]['text'] = coin_data[1] + ' - (' + coin_data[2] + ')'
+            buffer['body']['contents'][0]['text'] = coin_data[1] + ' - (' + coin_data[2] + ')'
         #     buffer['body']['contents'][1]['contents'][0]['contents'][1]['contents'][0]['text'] = coin_data[3]
         #     buffer['body']['contents'][1]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = coin_data[3]
         #     buffer['body']['contents'][2]['contents'][0]['contents'][1]['contents'][0]['text'] = coin_data[4]
