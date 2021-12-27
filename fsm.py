@@ -96,12 +96,12 @@ class TocMachine(GraphMachine):
         else:
             buffer['hero']['url'] = str(coin_data[0])
             buffer['body']['contents'][0]['text'] = str(coin_data[1]) + ' - (' + str(coin_data[2]) + ')'
-            buffer['body']['contents'][1]['contents'][0]['contents'][1]['contents'][0]['text'] = str(coin_data[3])
-            # buffer['body']['contents'][1]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = str(coin_data[3])
-            # buffer['body']['contents'][2]['contents'][0]['contents'][1]['contents'][0]['text'] = str(coin_data[4])
-            # buffer['body']['contents'][2]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = str(coin_data[4])
-            # buffer['body']['contents'][3]['contents'][0]['contents'][1]['contents'][0]['text'] = str(coin_data[5])
-            # buffer['body']['contents'][3]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = str(coin_data[5])
+            buffer['body']['contents'][1]['contents'][0]['contents'][1]['contents'][0]['text'] = str(coin_data[3][0])
+            buffer['body']['contents'][1]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = str(coin_data[3][0])
+            buffer['body']['contents'][2]['contents'][0]['contents'][1]['contents'][0]['text'] = str(coin_data[4][0])
+            buffer['body']['contents'][2]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = str(coin_data[4][0])
+            buffer['body']['contents'][3]['contents'][0]['contents'][1]['contents'][0]['text'] = str(coin_data[5][0])
+            buffer['body']['contents'][3]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = str(coin_data[5][0])
 
         line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
         line_bot_api.reply_message(reply_token, FlexSendMessage("coin data", buffer))

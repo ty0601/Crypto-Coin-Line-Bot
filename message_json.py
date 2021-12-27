@@ -885,7 +885,7 @@ metadata = {
             "action": {
               "type": "message",
               "label": "Choose Other Coins",
-              "text": "choose coin"
+              "text": "Choose Coins"
             },
             "color": "#ffffff"
           }
