@@ -52,6 +52,7 @@ def get_coin_metadata(coin):
         data.append(coin_data['urls']['source_code'])
         print(data)
         return data
+    print("Empty")
     return []
 
 

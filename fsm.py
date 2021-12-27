@@ -100,7 +100,7 @@ class TocMachine(GraphMachine):
             buffer['body']['contents'][1]['contents'][0]['contents'][1]['text'] = coin_data[3]
             buffer['body']['contents'][2]['contents'][0]['contents'][1]['text'] = coin_data[4]
             buffer['body']['contents'][3]['contents'][0]['contents'][1]['text'] = coin_data[5]
-        print("buffer out")
+            print("buffer out")
         line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
         line_bot_api.reply_message(reply_token, FlexSendMessage("coin price", buffer))
 
