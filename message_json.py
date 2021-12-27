@@ -318,7 +318,7 @@ introduction = {
                     },
                     {
                         "type": "text",
-                        "text": "Thanks for using",
+                        "text": "Have fun for using!!",
                         "gravity": "center",
                         "flex": 1,
                         "size": "17.7px",
@@ -929,6 +929,7 @@ metadata = {
     }
   }
 }
+
 cancel = {
   "type": "bubble",
   "body": {

@@ -9,6 +9,7 @@ from api import get_coin_price, get_coin_metadata
 
 class TocMachine(GraphMachine):
     curr_coin = ''
+    hasCoin = False
 
     def __init__(self, **machine_configs):
         self.machine = GraphMachine(model=self, **machine_configs)
@@ -33,6 +34,10 @@ class TocMachine(GraphMachine):
     def is_going_to_metadata(self, event):
         text = event.message.text
         return text.lower() == "metadata"
+
+    def is_going_to_not_found(self, event):
+        global hasCoin
+        return hasCoin
 
     def is_going_to_fsm_graph(self, event):
         text = event.message.text
@@ -73,9 +78,12 @@ class TocMachine(GraphMachine):
         buffer = message_json.price_info
         coin_price = get_coin_price(curr_coin)
         if not coin_price:
-            send_text_message(reply_token, "Sorry, I can't find the coin")
+            global hasCoin
+            hasCoin = True
+            # send_text_message(reply_token, "Sorry, I can't find the coin")
         else:
-            buffer['body']['contents'][0]['contents'][0]['text'] = str(coin_price[0]) + ' - (' + str(coin_price[1]) + ')'
+            buffer['body']['contents'][0]['contents'][0]['text'] = str(coin_price[0]) + ' - (' + str(
+                coin_price[1]) + ')'
             buffer['body']['contents'][1]['contents'][1]['contents'][0]['text'] = '$ ' + str(coin_price[2])
             buffer['body']['contents'][2]['contents'][1]['contents'][0]['text'] = '$ ' + str(coin_price[3])
             buffer['body']['contents'][3]['contents'][1]['contents'][0]['text'] = '$ ' + str(coin_price[4])
@@ -92,19 +100,42 @@ class TocMachine(GraphMachine):
         buffer = message_json.metadata
         coin_data = get_coin_metadata(curr_coin)
         if not coin_data:
-            send_text_message(reply_token, "Sorry, I can't find the coin")
+            global hasCoin
+            hasCoin = True
+            # send_text_message(reply_token, "Sorry, I can't find the coin")
         else:
             buffer['hero']['url'] = str(coin_data[0])
             buffer['body']['contents'][0]['text'] = str(coin_data[1]) + ' - (' + str(coin_data[2]) + ')'
-            buffer['body']['contents'][1]['contents'][0]['contents'][1]['contents'][0]['text'] = str(coin_data[3][0])
-            buffer['body']['contents'][1]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = str(coin_data[3][0])
-            buffer['body']['contents'][2]['contents'][0]['contents'][1]['contents'][0]['text'] = str(coin_data[4][0])
-            buffer['body']['contents'][2]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = str(coin_data[4][0])
-            buffer['body']['contents'][3]['contents'][0]['contents'][1]['contents'][0]['text'] = str(coin_data[5][0])
-            buffer['body']['contents'][3]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = str(coin_data[5][0])
+            if not coin_data[3]:
+                buffer['body']['contents'][1]['contents'][0]['contents'][1]['contents'][0]['text'] = ""
+                buffer['body']['contents'][1]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = ""
+            else:
+                buffer['body']['contents'][1]['contents'][0]['contents'][1]['contents'][0]['text'] = str(
+                    coin_data[3][0])
+                buffer['body']['contents'][1]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = str(
+                    coin_data[3][0])
+            if not coin_data[4]:
+                buffer['body']['contents'][2]['contents'][0]['contents'][1]['contents'][0]['text'] = ""
+                buffer['body']['contents'][2]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = ""
+            else:
+                buffer['body']['contents'][2]['contents'][0]['contents'][1]['contents'][0]['text'] = str(
+                    coin_data[4][0])
+                buffer['body']['contents'][2]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = str(
+                    coin_data[4][0])
+            if not coin_data[5]:
+                buffer['body']['contents'][3]['contents'][0]['contents'][1]['contents'][0]['text'] = ""
+                buffer['body']['contents'][3]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = ""
+            else:
+                buffer['body']['contents'][3]['contents'][0]['contents'][1]['contents'][0]['text'] = str(coin_data[5][0])
+                buffer['body']['contents'][3]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = str(
+                    coin_data[5][0])
 
         line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
         line_bot_api.reply_message(reply_token, FlexSendMessage("coin data", buffer))
+
+    def on_enter_metadata(self, event):
+        reply_token = event.reply_token
+        send_text_message(reply_token, "menu")
 
     def on_enter_fsm_graph(self, event):
         reply_token = event.reply_token
