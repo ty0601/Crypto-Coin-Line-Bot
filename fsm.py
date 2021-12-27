@@ -104,8 +104,7 @@ class TocMachine(GraphMachine):
             buffer['body']['contents'][3]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = coin_data[5]
 
             line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
-            send_text_message(reply_token,reply_token)
-            # line_bot_api.reply_message(reply_token, FlexSendMessage("coin data", buffer))
+            line_bot_api.reply_message(reply_token, FlexSendMessage("coin data", buffer))
 
     def on_enter_fsm_graph(self, event):
         reply_token = event.reply_token
