@@ -89,7 +89,7 @@ class TocMachine(GraphMachine):
     def on_enter_metadata(self, event):
         global curr_coin
         reply_token = event.reply_token
-        buffer = message_json.price_info
+        buffer = message_json.metadata
         coin_data = get_coin_metadata(curr_coin)
         if not coin_data:
             send_text_message(reply_token, "Sorry, I can't find the coin")
