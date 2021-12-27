@@ -9,7 +9,6 @@ from api import get_coin_price, get_coin_metadata
 
 class TocMachine(GraphMachine):
     curr_coin = ''
-    hasCoin = True
 
     def __init__(self, **machine_configs):
         self.machine = GraphMachine(model=self, **machine_configs)
@@ -34,10 +33,6 @@ class TocMachine(GraphMachine):
     def is_going_to_metadata(self, event):
         text = event.message.text
         return text.lower() == "metadata"
-
-    def is_going_to_not_found(self, event):
-        global hasCoin
-        return not hasCoin
 
     def is_going_to_fsm_graph(self, event):
         text = event.message.text
@@ -78,9 +73,7 @@ class TocMachine(GraphMachine):
         buffer = message_json.price_info
         coin_price = get_coin_price(curr_coin)
         if not coin_price:
-            global hasCoin
-            hasCoin = True
-            # send_text_message(reply_token, "Sorry, I can't find the coin")
+            send_text_message(reply_token, "Sorry, I can't find the coin")
         else:
             buffer['body']['contents'][0]['contents'][0]['text'] = str(coin_price[0]) + ' - (' + str(
                 coin_price[1]) + ')'
@@ -100,9 +93,7 @@ class TocMachine(GraphMachine):
         buffer = message_json.metadata
         coin_data = get_coin_metadata(curr_coin)
         if not coin_data:
-            global hasCoin
-            hasCoin = True
-            # send_text_message(reply_token, "Sorry, I can't find the coin")
+            send_text_message(reply_token, "Sorry, I can't find the coin")
         else:
             buffer['hero']['url'] = str(coin_data[0])
             buffer['body']['contents'][0]['text'] = str(coin_data[1]) + ' - (' + str(coin_data[2]) + ')'
@@ -129,13 +120,8 @@ class TocMachine(GraphMachine):
                 buffer['body']['contents'][3]['contents'][0]['contents'][1]['contents'][0]['text'] = str(coin_data[5][0])
                 buffer['body']['contents'][3]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = str(
                     coin_data[5][0])
-
-        line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
-        line_bot_api.reply_message(reply_token, FlexSendMessage("coin data", buffer))
-
-    def on_enter_not_found(self, event):
-        reply_token = event.reply_token
-        send_text_message(reply_token, "menu")
+            line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
+            line_bot_api.reply_message(reply_token, FlexSendMessage("coin data", buffer))
 
     def on_enter_fsm_graph(self, event):
         reply_token = event.reply_token
