@@ -792,7 +792,8 @@ metadata = {
                                             "uri": "https://bitcoin.org/"
                                         }
                                     }
-                                ]
+                                ],
+                                "alignItems": "center"
                             }
                         ]
                     }
@@ -827,7 +828,8 @@ metadata = {
                                             "type": "uri",
                                             "label": "action",
                                             "uri": "https://bitcoin.org/bitcoin.pdf"
-                                        }
+                                        },
+                                        "align": "center"
                                     }
                                 ]
                             }
@@ -864,7 +866,8 @@ metadata = {
                                             "type": "uri",
                                             "label": "action",
                                             "uri": "https://github.com/bitcoin/bitcoin"
-                                        }
+                                        },
+                                        "align": "center"
                                     }
                                 ]
                             }
