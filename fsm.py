@@ -92,6 +92,7 @@ class TocMachine(GraphMachine):
         buffer = message_json.metadata
         coin_data = get_coin_metadata(curr_coin)
         if not coin_data:
+            print("No data")
             send_text_message(reply_token, "Sorry, I can't find the coin")
         else:
             buffer['hero']['url'] = coin_data[0]
@@ -99,6 +100,7 @@ class TocMachine(GraphMachine):
             buffer['body']['contents'][1]['contents'][0]['contents'][1]['text'] = coin_data[3]
             buffer['body']['contents'][2]['contents'][0]['contents'][1]['text'] = coin_data[4]
             buffer['body']['contents'][3]['contents'][0]['contents'][1]['text'] = coin_data[5]
+        print("buffer out")
         line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
         line_bot_api.reply_message(reply_token, FlexSendMessage("coin price", buffer))
 

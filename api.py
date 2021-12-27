@@ -50,6 +50,7 @@ def get_coin_metadata(coin):
         data.append(coin_data['urls']['website'])
         data.append(coin_data['urls']['technical_doc'])
         data.append(coin_data['urls']['source_code'])
+        print(data)
         return data
     return []
 
