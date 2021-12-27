@@ -743,190 +743,190 @@ price_info = {
 }
 
 metadata = {
-    "type": "bubble",
-    "size": "giga",
-    "hero": {
-        "type": "image",
-        "url": "https://s2.coinmarketcap.com/static/img/coins/64x64/1.png",
-        "size": "xl",
-        "aspectRatio": "1:1",
-        "aspectMode": "cover",
-        "action": {
-            "type": "uri",
-            "uri": "http://linecorp.com/"
-        }
-    },
-    "body": {
+  "type": "bubble",
+  "size": "giga",
+  "hero": {
+    "type": "image",
+    "url": "https://s2.coinmarketcap.com/static/img/coins/64x64/1.png",
+    "size": "xl",
+    "aspectRatio": "1:1",
+    "aspectMode": "cover",
+    "action": {
+      "type": "uri",
+      "uri": "http://linecorp.com/"
+    }
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "Bitcoin - (BTC)",
+        "weight": "bold",
+        "size": "24px",
+        "offsetTop": "10px"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "margin": "lg",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "text",
+                "text": "website: ",
+                "flex": 0,
+                "color": "#000000"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "https://bitcoin.org/",
+                    "action": {
+                      "type": "uri",
+                      "label": "action",
+                      "uri": "https://bitcoin.org/"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "offsetTop": "10px"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "margin": "lg",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "text",
+                "text": "white paper:           ",
+                "flex": 0,
+                "color": "#000000"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "https://bitcoin.org/bitcoin.pdf",
+                    "flex": 1,
+                    "action": {
+                      "type": "uri",
+                      "label": "action",
+                      "uri": "https://bitcoin.org/bitcoin.pdf"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "offsetTop": "10px"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "margin": "lg",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "text",
+                "text": "source code:  ",
+                "flex": 0,
+                "color": "#000000"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "https://github.com/bitcoin/bitcoin",
+                    "flex": 1,
+                    "action": {
+                      "type": "uri",
+                      "label": "action",
+                      "uri": "https://github.com/bitcoin/bitcoin"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "offsetTop": "10px"
+      },
+      {
         "type": "box",
         "layout": "vertical",
         "contents": [
-            {
-                "type": "text",
-                "text": "Bitcoin - (BTC)",
-                "weight": "bold",
-                "size": "24px",
-                "offsetTop": "10px"
+          {
+            "type": "button",
+            "action": {
+              "type": "message",
+              "label": "Choose Other Coins",
+              "text": "choose coin"
             },
-            {
-                "type": "box",
-                "layout": "vertical",
-                "margin": "lg",
-                "spacing": "sm",
-                "contents": [
-                    {
-                        "type": "box",
-                        "layout": "horizontal",
-                        "contents": [
-                            {
-                                "type": "text",
-                                "text": "website: ",
-                                "flex": 0,
-                                "color": "#000000"
-                            },
-                            {
-                                "type": "box",
-                                "layout": "vertical",
-                                "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": "https://bitcoin.org/",
-                                        "action": {
-                                            "type": "uri",
-                                            "label": "action",
-                                            "uri": "http://linecorp.com/"
-                                        }
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ],
-                "offsetTop": "10px"
-            },
-            {
-                "type": "box",
-                "layout": "vertical",
-                "margin": "lg",
-                "spacing": "sm",
-                "contents": [
-                    {
-                        "type": "box",
-                        "layout": "horizontal",
-                        "contents": [
-                            {
-                                "type": "text",
-                                "text": "white paper:           ",
-                                "flex": 0,
-                                "color": "#000000"
-                            },
-                            {
-                                "type": "box",
-                                "layout": "vertical",
-                                "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": "https://bitcoin.org/bitcoin.pdf",
-                                        "flex": 1,
-                                        "action": {
-                                            "type": "uri",
-                                            "label": "action",
-                                            "uri": "http://linecorp.com/"
-                                        }
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ],
-                "offsetTop": "10px"
-            },
-            {
-                "type": "box",
-                "layout": "vertical",
-                "margin": "lg",
-                "spacing": "sm",
-                "contents": [
-                    {
-                        "type": "box",
-                        "layout": "horizontal",
-                        "contents": [
-                            {
-                                "type": "text",
-                                "text": "source code:  ",
-                                "flex": 0,
-                                "color": "#000000"
-                            },
-                            {
-                                "type": "box",
-                                "layout": "vertical",
-                                "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": "https://github.com/bitcoin/bitcoin",
-                                        "flex": 1,
-                                        "action": {
-                                            "type": "uri",
-                                            "label": "action",
-                                            "uri": "http://linecorp.com/"
-                                        }
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ],
-                "offsetTop": "10px"
-            },
-            {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                    {
-                        "type": "button",
-                        "action": {
-                            "type": "message",
-                            "label": "Choose Other Coins",
-                            "text": "choose coin"
-                        },
-                        "color": "#ffffff"
-                    }
-                ],
-                "offsetTop": "10px",
-                "cornerRadius": "15px",
-                "backgroundColor": "#FF9999",
-                "margin": "sm"
-            },
-            {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                    {
-                        "type": "button",
-                        "action": {
-                            "type": "message",
-                            "label": "End Operation",
-                            "text": "end operation"
-                        },
-                        "color": "#ffffff"
-                    }
-                ],
-                "offsetTop": "10px",
-                "cornerRadius": "15px",
-                "backgroundColor": "#FF9999",
-                "margin": "sm"
-            }
+            "color": "#ffffff"
+          }
         ],
-        "backgroundColor": "#F9F2EB"
-    },
-    "footer": {
+        "offsetTop": "10px",
+        "cornerRadius": "15px",
+        "backgroundColor": "#FF9999",
+        "margin": "sm"
+      },
+      {
         "type": "box",
         "layout": "vertical",
-        "contents": [],
-        "backgroundColor": "#F9F2EB"
-    },
-    "styles": {
-        "hero": {
-            "backgroundColor": "#F9F2EB"
-        }
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "message",
+              "label": "End Operation",
+              "text": "end operation"
+            },
+            "color": "#ffffff"
+          }
+        ],
+        "offsetTop": "10px",
+        "cornerRadius": "15px",
+        "backgroundColor": "#FF9999",
+        "margin": "sm"
+      }
+    ],
+    "backgroundColor": "#F9F2EB"
+  },
+  "footer": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [],
+    "backgroundColor": "#F9F2EB"
+  },
+  "styles": {
+    "hero": {
+      "backgroundColor": "#F9F2EB"
     }
+  }
 }
