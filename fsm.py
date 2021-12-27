@@ -91,21 +91,20 @@ class TocMachine(GraphMachine):
         reply_token = event.reply_token
         buffer = message_json.metadata
         coin_data = get_coin_metadata(curr_coin)
-        if not coin_data:
-            send_text_message(reply_token, "Sorry, I can't find the coin")
-        else:
-            buffer1 = buffer['body']['contents']
-            buffer['hero']['url'] = coin_data[0]
-            buffer1[0]['text'] = coin_data[1] + ' - (' + coin_data[2] + ')'
-            buffer1[1]['contents'][0]['contents'][1]['contents'][0]['text'] = coin_data[3]
-            buffer1[1]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = coin_data[3]
-            buffer1[2]['contents'][0]['contents'][1]['contents'][0]['text'] = coin_data[4]
-            buffer1[2]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = coin_data[4]
-            buffer1[3]['contents'][0]['contents'][1]['contents'][0]['text'] = coin_data[5]
-            buffer1[3]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = coin_data[5]
+        # if not coin_data:
+        #     send_text_message(reply_token, "Sorry, I can't find the coin")
+        # else:
+        #     buffer['hero']['url'] = coin_data[0]
+        #     buffer['body']['contents'][0]['text'] = coin_data[1] + ' - (' + coin_data[2] + ')'
+        #     buffer['body']['contents'][1]['contents'][0]['contents'][1]['contents'][0]['text'] = coin_data[3]
+        #     buffer['body']['contents'][1]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = coin_data[3]
+        #     buffer['body']['contents'][2]['contents'][0]['contents'][1]['contents'][0]['text'] = coin_data[4]
+        #     buffer['body']['contents'][2]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = coin_data[4]
+        #     buffer['body']['contents'][3]['contents'][0]['contents'][1]['contents'][0]['text'] = coin_data[5]
+        #     buffer['body']['contents'][3]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = coin_data[5]
 
-            line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
-            line_bot_api.reply_message(reply_token, FlexSendMessage("coin data", buffer))
+        line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
+        line_bot_api.reply_message(reply_token, FlexSendMessage("coin data", buffer))
 
     def on_enter_fsm_graph(self, event):
         reply_token = event.reply_token
