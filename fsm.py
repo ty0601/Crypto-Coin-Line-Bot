@@ -9,7 +9,7 @@ from api import get_coin_price, get_coin_metadata
 
 class TocMachine(GraphMachine):
     curr_coin = ''
-    hasCoin = False
+    hasCoin = True
 
     def __init__(self, **machine_configs):
         self.machine = GraphMachine(model=self, **machine_configs)
@@ -37,7 +37,7 @@ class TocMachine(GraphMachine):
 
     def is_going_to_not_found(self, event):
         global hasCoin
-        return hasCoin
+        return not hasCoin
 
     def is_going_to_fsm_graph(self, event):
         text = event.message.text
@@ -133,7 +133,7 @@ class TocMachine(GraphMachine):
         line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
         line_bot_api.reply_message(reply_token, FlexSendMessage("coin data", buffer))
 
-    def on_enter_metadata(self, event):
+    def on_enter_not_found(self, event):
         reply_token = event.reply_token
         send_text_message(reply_token, "menu")
 
