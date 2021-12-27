@@ -18,7 +18,7 @@ class TocMachine(GraphMachine):
         return text.lower() == "menu"
 
     def is_going_to_coin_menu(self, event):
-        global  curr_coin
+        global curr_coin
         curr_coin = event.message.text
         return True
 
@@ -74,17 +74,17 @@ class TocMachine(GraphMachine):
         buffer = message_json.price_info
         coin_price = get_coin_price(curr_coin)
         if not coin_price:
-             send_text_message(reply_token, "Sorry, I can't find the coin")
+            send_text_message(reply_token, "Sorry, I can't find the coin")
         else:
 
             buffer['body']['contents'][0]['contents'][0]['text'] = coin_price[0] + ' - (' + coin_price[1] + ')'
             buffer['body']['contents'][1]['contents'][1]['contents'][0]['text'] = '$ ' + str(coin_price[2])
             buffer['body']['contents'][2]['contents'][1]['contents'][0]['text'] = '$ ' + str(coin_price[3])
             buffer['body']['contents'][3]['contents'][1]['contents'][0]['text'] = '$ ' + str(coin_price[4])
-            buffer['body']['contents'][4]['contents'][1]['contents'][0]['text'] = str(coin_price[5])
-            buffer['body']['contents'][5]['contents'][1]['contents'][0]['text'] = str(coin_price[6])
-            buffer['body']['contents'][6]['contents'][1]['contents'][0]['text'] = str(coin_price[7])
-            buffer['body']['contents'][7]['contents'][1]['contents'][0]['text'] = str(coin_price[8])
+            buffer['body']['contents'][4]['contents'][1]['contents'][0]['text'] = str(coin_price[5]) + '%'
+            buffer['body']['contents'][5]['contents'][1]['contents'][0]['text'] = str(coin_price[6]) + '%'
+            buffer['body']['contents'][6]['contents'][1]['contents'][0]['text'] = str(coin_price[7]) + '%'
+            buffer['body']['contents'][7]['contents'][1]['contents'][0]['text'] = str(coin_price[8]) + '%'
         line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
         line_bot_api.reply_message(reply_token, FlexSendMessage("coin price", buffer))
 
