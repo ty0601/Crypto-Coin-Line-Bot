@@ -83,8 +83,8 @@ class TocMachine(GraphMachine):
             buffer['body']['contents'][5]['contents'][1]['contents'][0]['text'] = str(coin_price[6]) + '%'
             buffer['body']['contents'][6]['contents'][1]['contents'][0]['text'] = str(coin_price[7]) + '%'
             buffer['body']['contents'][7]['contents'][1]['contents'][0]['text'] = str(coin_price[8]) + '%'
-            line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
-            line_bot_api.reply_message(reply_token, FlexSendMessage("coin price", buffer))
+            # line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
+            # line_bot_api.reply_message(reply_token, FlexSendMessage("coin price", buffer))
 
     def on_enter_metadata(self, event):
         global curr_coin
