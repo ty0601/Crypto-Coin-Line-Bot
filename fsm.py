@@ -24,7 +24,7 @@ class TocMachine(GraphMachine):
 
     def is_going_to_coins(self, event):
         text = event.message.text
-        return 'coins' in text
+        return 'coins' in text.lower()
 
     def is_going_to_price(self, event):
         text = event.message.text
