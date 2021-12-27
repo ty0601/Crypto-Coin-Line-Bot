@@ -929,3 +929,52 @@ metadata = {
     }
   }
 }
+cancel = {
+  "type": "bubble",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "Operation Done",
+        "weight": "bold",
+        "size": "xxl",
+        "margin": "md",
+        "align": "center"
+      },
+      {
+        "type": "separator",
+        "margin": "xxl"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "message",
+              "label": "Menu",
+              "text": "Menu"
+            },
+            "color": "#333333"
+          }
+        ],
+        "offsetTop": "7px",
+        "backgroundColor": "#B07BD7",
+        "cornerRadius": "14px"
+      },
+      {
+        "type": "separator",
+        "margin": "xl"
+      }
+    ],
+    "backgroundColor": "#EADCF4"
+  },
+  "styles": {
+    "footer": {
+      "separator": True
+    }
+  }
+}

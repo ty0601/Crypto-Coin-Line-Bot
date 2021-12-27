@@ -120,5 +120,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_cancel(self, event):
         reply_token = event.reply_token
-        send_text_message(reply_token, "on_enter_cancel")
+        reply_message = FlexSendMessage(reply_token, message_json.cancel)
+        line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
+        line_bot_api.reply_message(reply_token, reply_message)
         self.go_back()
