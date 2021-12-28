@@ -15,7 +15,7 @@ from utils import send_text_message
 load_dotenv()
 
 machine = TocMachine(
-    states=["user", "menu", "coins", "coin_menu", "price", "metadata", "fsm_graph", "introduction", "cancel"],
+    states=["user", "menu", "choose coins", "coin_menu", "price", "metadata", "fsm_graph", "introduction", "cancel"],
     transitions=[
         {
             "trigger": "advance",
@@ -32,20 +32,20 @@ machine = TocMachine(
         {
             "trigger": "advance",
             "source": "menu",
-            "dest": "coins",
-            "conditions": "is_going_to_coins",
+            "dest": "choose coins",
+            "conditions": "is_going_to_choose coins",
         },
         {
             "trigger": "advance",
-            "source": "coins",
+            "source": "choose coins",
             "dest": "coin_menu",
             "conditions": "is_going_to_coin_menu",
         },
         {
             "trigger": "advance",
             "source": "coin_menu",
-            "dest": "coins",
-            "conditions": "is_going_to_coins",
+            "dest": "choose coins",
+            "conditions": "is_going_to_choose coins",
         },
         {
             "trigger": "advance",
@@ -80,8 +80,8 @@ machine = TocMachine(
         {
             "trigger": "advance",
             "source": "price",
-            "dest": "coins",
-            "conditions": "is_going_to_coins",
+            "dest": "choose coins",
+            "conditions": "is_going_to_choose coins",
         },
         {
             "trigger": "advance",
@@ -98,8 +98,8 @@ machine = TocMachine(
         {
             "trigger": "advance",
             "source": "metadata",
-            "dest": "coins",
-            "conditions": "is_going_to_coins",
+            "dest": "choose coins",
+            "conditions": "is_going_to_choose coins",
         },
         {
             "trigger": "advance",

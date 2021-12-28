@@ -980,7 +980,7 @@ cancel = {
     }
 }
 
-not_found = {
+not_found_coin_menu = {
     "type": "bubble",
     "header": {
         "type": "box",

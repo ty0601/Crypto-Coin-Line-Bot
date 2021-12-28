@@ -22,7 +22,7 @@ class TocMachine(GraphMachine):
         curr_coin = event.message.text
         return True
 
-    def is_going_to_coins(self, event):
+    def is_going_to_choose_coins(self, event):
         text = event.message.text
         return 'coins' in text.lower()
 
@@ -52,7 +52,7 @@ class TocMachine(GraphMachine):
         line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
         line_bot_api.reply_message(reply_token, reply_message)
 
-    def on_enter_coins(self, event):
+    def on_enter_choose_coins(self, event):
         global curr_coin
         curr_coin = ''
         reply_token = event.reply_token
@@ -72,7 +72,7 @@ class TocMachine(GraphMachine):
         reply_token = event.reply_token
         coin_price = get_coin_price(curr_coin)
         if not coin_price:
-            reply_message = FlexSendMessage("not found", message_json.not_found)
+            reply_message = FlexSendMessage("not found", message_json.not_found_coin_menu)
             line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
             line_bot_api.reply_message(reply_token, reply_message)
         else:
@@ -94,7 +94,7 @@ class TocMachine(GraphMachine):
         reply_token = event.reply_token
         coin_data = get_coin_metadata(curr_coin)
         if not coin_data:
-            reply_message = FlexSendMessage("not found", message_json.not_found)
+            reply_message = FlexSendMessage("not found", message_json.not_found_coin_menu)
             line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
             line_bot_api.reply_message(reply_token, reply_message)
         else:
