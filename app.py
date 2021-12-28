@@ -83,7 +83,7 @@ def webhook_handler():
         if event.source.user_id not in machines:
             machines[event.source.user_id] = create_machine()
 
-        response = machines.advance(event)
+        response = machines[event.source.user_id].advance(event)
         if not response:
             send_text_message(event.reply_token, "Please follow the instruction button!!")
 
