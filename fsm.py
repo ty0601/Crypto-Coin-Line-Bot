@@ -90,6 +90,7 @@ class TocMachine(GraphMachine):
             # buffer['body']['contents'][7]['contents'][1]['contents'][0]['text'] = str(coin_price[8]) + '%'
             # line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
             # line_bot_api.reply_message(reply_token, FlexSendMessage("coin price", buffer))
+            print("Found!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
             reply_message = FlexSendMessage("not found", message_json.not_found)
             line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
             line_bot_api.reply_message(reply_token, FlexSendMessage("coin data", reply_message))
