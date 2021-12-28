@@ -15,7 +15,7 @@ from utils import send_text_message
 load_dotenv()
 
 machine = TocMachine(
-    states=["user", "menu", "choose coins", "coin_menu", "price", "metadata", "fsm_graph", "introduction", "cancel"],
+    states=["user", "menu", "choose_coins", "coin_menu", "price", "metadata", "fsm_graph", "introduction", "cancel"],
     transitions=[
         {
             "trigger": "advance",
@@ -32,7 +32,7 @@ machine = TocMachine(
         {
             "trigger": "advance",
             "source": "menu",
-            "dest": "choose coins",
+            "dest": "choose_coins",
             "conditions": "is_going_to_choose_coins",
         },
         {
@@ -44,7 +44,7 @@ machine = TocMachine(
         {
             "trigger": "advance",
             "source": "coin_menu",
-            "dest": "choose coins",
+            "dest": "choose_coins",
             "conditions": "is_going_to_choose_coins",
         },
         {
@@ -80,7 +80,7 @@ machine = TocMachine(
         {
             "trigger": "advance",
             "source": "price",
-            "dest": "choose coins",
+            "dest": "choose_coins",
             "conditions": "is_going_to_choose_coins",
         },
         {
@@ -98,7 +98,7 @@ machine = TocMachine(
         {
             "trigger": "advance",
             "source": "metadata",
-            "dest": "choose coins",
+            "dest": "choose_coins",
             "conditions": "is_going_to_choose_coins",
         },
         {
