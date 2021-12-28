@@ -9,12 +9,12 @@ from linebot import LineBotApi, WebhookParser
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage, StickerSendMessage, ImageSendMessage
 
-from fsm import TocMachine
+from machine import create_machine
 from utils import send_text_message
 
 load_dotenv()
 
-machine = {}
+machines = {}
 
 app = Flask(__name__, static_url_path="")
 
@@ -79,9 +79,13 @@ def webhook_handler():
             continue
         if not isinstance(event.message.text, str):
             continue
-        print(f"\nFSM STATE: {machine.state}")
+        print(f"\nFSM STATE: {machines.state}")
         print(f"REQUEST BODY: \n{body}")
-        response = machine.advance(event)
+
+        if event.source.user_id not in machines:
+            machines[event.source.user_id] = create_machine()
+
+        response = machines.advance(event)
         if not response:
             send_text_message(event.reply_token, "Please follow the instruction button!!")
 
@@ -90,7 +94,7 @@ def webhook_handler():
 
 @app.route("/show-fsm", methods=["GET"])
 def show_fsm():
-    machine.get_graph().draw("fsm.png", prog="dot", format="png")
+    machines.get_graph().draw("fsm.png", prog="dot", format="png")
     return send_file("fsm.png", mimetype="image/png")
 
 
