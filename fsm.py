@@ -21,7 +21,9 @@ class TocMachine(GraphMachine):
     def is_going_to_coin_menu(self, event):
         if event.source.user_id not in curr_coin:
             curr_coin.append(event.source.user_id)
-        curr_coin[event.source.user_id] = event.message.text
+            curr_coin[event.source.user_id] = event.message.text
+        else:
+            curr_coin[event.source.user_id] = event.message.text
         return True
 
     def is_going_to_choose_coins(self, event):
