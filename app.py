@@ -79,8 +79,6 @@ def webhook_handler():
             continue
         if not isinstance(event.message.text, str):
             continue
-        print(f"\nFSM STATE: {machines.state}")
-        print(f"REQUEST BODY: \n{body}")
 
         if event.source.user_id not in machines:
             machines[event.source.user_id] = create_machine()
