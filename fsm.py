@@ -73,10 +73,8 @@ class TocMachine(GraphMachine):
         coin_price = get_coin_price(curr_coin)
         if not coin_price:
             reply_message = FlexSendMessage("not found", message_json.not_found)
-            print(message_json.not_found)
-            print("Not Found!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
             line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
-            line_bot_api.reply_message(reply_token, FlexSendMessage("coin data", reply_message))
+            line_bot_api.reply_message(reply_token, reply_message)
         else:
             buffer = message_json.price_info
             buffer['body']['contents'][0]['contents'][0]['text'] = str(coin_price[0]) + ' - (' + str(
@@ -97,9 +95,8 @@ class TocMachine(GraphMachine):
         coin_data = get_coin_metadata(curr_coin)
         if not coin_data:
             reply_message = FlexSendMessage("not found", message_json.not_found)
-            print("Not Found!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
             line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
-            line_bot_api.reply_message(reply_token, FlexSendMessage("coin data", reply_message))
+            line_bot_api.reply_message(reply_token, reply_message)
         else:
             buffer = message_json.metadata
             buffer['hero']['url'] = str(coin_data[0])
