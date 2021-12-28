@@ -145,6 +145,7 @@ class TocMachine(GraphMachine):
         reply_message = FlexSendMessage("open menu", message_json.introduction)
         line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
         line_bot_api.reply_message(reply_token, reply_message)
+        self.go_back()
 
     def on_enter_cancel(self, event):
         reply_token = event.reply_token

@@ -38,12 +38,6 @@ machine = TocMachine(
         {
             "trigger": "advance",
             "source": "coins",
-            "dest": "menu",
-            "conditions": "is_going_to_menu",
-        },
-        {
-            "trigger": "advance",
-            "source": "coins",
             "dest": "coin_menu",
             "conditions": "is_going_to_coin_menu",
         },
@@ -70,12 +64,6 @@ machine = TocMachine(
             "source": "menu",
             "dest": "introduction",
             "conditions": "is_going_to_introduction",
-        },
-        {
-            "trigger": "advance",
-            "source": "introduction",
-            "dest": "menu",
-            "conditions": "is_going_to_menu",
         },
         {
             "trigger": "advance",
@@ -120,7 +108,7 @@ machine = TocMachine(
             "conditions": "is_going_to_menu",
         },
 
-        {"trigger": "go_back", "source": ["fsm_graph", "cancel"], "dest": "user"},
+        {"trigger": "go_back", "source": ["introduction", "fsm_graph", "cancel"], "dest": "user"},
     ],
     initial="user",
     auto_transitions=False,
@@ -193,7 +181,7 @@ def webhook_handler():
         print(f"REQUEST BODY: \n{body}")
         response = machine.advance(event)
         if not response:
-            send_text_message(event.reply_token, "Not Entering any State")
+            send_text_message(event.reply_token, "Please follow the instruction button!!")
 
     return "OK"
 

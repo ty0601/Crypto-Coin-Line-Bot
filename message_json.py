@@ -98,7 +98,7 @@ introduction = {
                 "contents": [
                     {
                         "type": "text",
-                        "text": "CRYPTO IMFORMATION",
+                        "text": "BOT IMFORMATION",
                         "color": "#ffffff66",
                         "size": "sm"
                     },
@@ -337,7 +337,7 @@ introduction = {
                         "type": "button",
                         "action": {
                             "type": "message",
-                            "label": "Menu",
+                            "label": "Back To Menu",
                             "text": "menu"
                         },
                         "color": "#ffffff",
@@ -743,313 +743,313 @@ price_info = {
 }
 
 metadata = {
-  "type": "bubble",
-  "size": "giga",
-  "hero": {
-    "type": "image",
-    "url": "https://s2.coinmarketcap.com/static/img/coins/64x64/1.png",
-    "size": "xl",
-    "aspectRatio": "1:1",
-    "aspectMode": "cover"
-  },
-  "body": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
-        "type": "text",
-        "text": "Bitcoin - (BTC)",
-        "weight": "bold",
-        "size": "24px",
-        "offsetTop": "10px"
-      },
-      {
-        "type": "box",
-        "layout": "vertical",
-        "margin": "lg",
-        "spacing": "sm",
-        "contents": [
-          {
-            "type": "box",
-            "layout": "horizontal",
-            "contents": [
-              {
-                "type": "text",
-                "text": "website: ",
-                "flex": 0,
-                "color": "#000000"
-              },
-              {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "https://bitcoin.org/",
-                    "action": {
-                      "type": "uri",
-                      "label": "action",
-                      "uri": "https://bitcoin.org/"
-                    },
-                    "align": "center"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "offsetTop": "10px"
-      },
-      {
-        "type": "box",
-        "layout": "vertical",
-        "margin": "lg",
-        "spacing": "sm",
-        "contents": [
-          {
-            "type": "box",
-            "layout": "horizontal",
-            "contents": [
-              {
-                "type": "text",
-                "text": "white paper:           ",
-                "flex": 0,
-                "color": "#000000"
-              },
-              {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "https://bitcoin.org/bitcoin.pdf",
-                    "flex": 1,
-                    "action": {
-                      "type": "uri",
-                      "label": "action",
-                      "uri": "https://bitcoin.org/bitcoin.pdf"
-                    },
-                    "align": "center"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "offsetTop": "10px"
-      },
-      {
-        "type": "box",
-        "layout": "vertical",
-        "margin": "lg",
-        "spacing": "sm",
-        "contents": [
-          {
-            "type": "box",
-            "layout": "horizontal",
-            "contents": [
-              {
-                "type": "text",
-                "text": "source code:  ",
-                "flex": 0,
-                "color": "#000000"
-              },
-              {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "https://github.com/bitcoin/bitcoin",
-                    "flex": 1,
-                    "action": {
-                      "type": "uri",
-                      "label": "action",
-                      "uri": "https://github.com/bitcoin/bitcoin"
-                    },
-                    "align": "center"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "offsetTop": "10px"
-      },
-      {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "button",
-            "action": {
-              "type": "message",
-              "label": "Choose Other Coins",
-              "text": "Choose Coins"
-            },
-            "color": "#ffffff"
-          }
-        ],
-        "offsetTop": "10px",
-        "cornerRadius": "15px",
-        "backgroundColor": "#FF9999",
-        "margin": "sm"
-      },
-      {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "button",
-            "action": {
-              "type": "message",
-              "label": "End Operation",
-              "text": "end operation"
-            },
-            "color": "#ffffff"
-          }
-        ],
-        "offsetTop": "10px",
-        "cornerRadius": "15px",
-        "backgroundColor": "#FF9999",
-        "margin": "sm"
-      }
-    ],
-    "backgroundColor": "#F9F2EB"
-  },
-  "footer": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [],
-    "backgroundColor": "#F9F2EB"
-  },
-  "styles": {
+    "type": "bubble",
+    "size": "giga",
     "hero": {
-      "backgroundColor": "#F9F2EB"
+        "type": "image",
+        "url": "https://s2.coinmarketcap.com/static/img/coins/64x64/1.png",
+        "size": "xl",
+        "aspectRatio": "1:1",
+        "aspectMode": "cover"
+    },
+    "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+            {
+                "type": "text",
+                "text": "Bitcoin - (BTC)",
+                "weight": "bold",
+                "size": "24px",
+                "offsetTop": "10px"
+            },
+            {
+                "type": "box",
+                "layout": "vertical",
+                "margin": "lg",
+                "spacing": "sm",
+                "contents": [
+                    {
+                        "type": "box",
+                        "layout": "horizontal",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "website: ",
+                                "flex": 0,
+                                "color": "#000000"
+                            },
+                            {
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "https://bitcoin.org/",
+                                        "action": {
+                                            "type": "uri",
+                                            "label": "action",
+                                            "uri": "https://bitcoin.org/"
+                                        },
+                                        "align": "center"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "offsetTop": "10px"
+            },
+            {
+                "type": "box",
+                "layout": "vertical",
+                "margin": "lg",
+                "spacing": "sm",
+                "contents": [
+                    {
+                        "type": "box",
+                        "layout": "horizontal",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "white paper:           ",
+                                "flex": 0,
+                                "color": "#000000"
+                            },
+                            {
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "https://bitcoin.org/bitcoin.pdf",
+                                        "flex": 1,
+                                        "action": {
+                                            "type": "uri",
+                                            "label": "action",
+                                            "uri": "https://bitcoin.org/bitcoin.pdf"
+                                        },
+                                        "align": "center"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "offsetTop": "10px"
+            },
+            {
+                "type": "box",
+                "layout": "vertical",
+                "margin": "lg",
+                "spacing": "sm",
+                "contents": [
+                    {
+                        "type": "box",
+                        "layout": "horizontal",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "source code:  ",
+                                "flex": 0,
+                                "color": "#000000"
+                            },
+                            {
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "https://github.com/bitcoin/bitcoin",
+                                        "flex": 1,
+                                        "action": {
+                                            "type": "uri",
+                                            "label": "action",
+                                            "uri": "https://github.com/bitcoin/bitcoin"
+                                        },
+                                        "align": "center"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "offsetTop": "10px"
+            },
+            {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "button",
+                        "action": {
+                            "type": "message",
+                            "label": "Choose Other Coins",
+                            "text": "Choose Coins"
+                        },
+                        "color": "#ffffff"
+                    }
+                ],
+                "offsetTop": "10px",
+                "cornerRadius": "15px",
+                "backgroundColor": "#FF9999",
+                "margin": "sm"
+            },
+            {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "button",
+                        "action": {
+                            "type": "message",
+                            "label": "End Operation",
+                            "text": "end operation"
+                        },
+                        "color": "#ffffff"
+                    }
+                ],
+                "offsetTop": "10px",
+                "cornerRadius": "15px",
+                "backgroundColor": "#FF9999",
+                "margin": "sm"
+            }
+        ],
+        "backgroundColor": "#F9F2EB"
+    },
+    "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [],
+        "backgroundColor": "#F9F2EB"
+    },
+    "styles": {
+        "hero": {
+            "backgroundColor": "#F9F2EB"
+        }
     }
-  }
 }
 
 cancel = {
-  "type": "bubble",
-  "body": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
-        "type": "text",
-        "text": "Operation Done",
-        "weight": "bold",
-        "size": "xxl",
-        "margin": "md",
-        "align": "center"
-      },
-      {
-        "type": "separator",
-        "margin": "xxl"
-      },
-      {
+    "type": "bubble",
+    "body": {
         "type": "box",
         "layout": "vertical",
         "contents": [
-          {
-            "type": "button",
-            "action": {
-              "type": "message",
-              "label": "Menu",
-              "text": "Menu"
+            {
+                "type": "text",
+                "text": "Operation Done",
+                "weight": "bold",
+                "size": "xxl",
+                "margin": "md",
+                "align": "center"
             },
-            "color": "#333333"
-          }
+            {
+                "type": "separator",
+                "margin": "xxl"
+            },
+            {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "button",
+                        "action": {
+                            "type": "message",
+                            "label": "Menu",
+                            "text": "Menu"
+                        },
+                        "color": "#333333"
+                    }
+                ],
+                "offsetTop": "7px",
+                "backgroundColor": "#B07BD7",
+                "cornerRadius": "14px"
+            },
+            {
+                "type": "separator",
+                "margin": "xl"
+            }
         ],
-        "offsetTop": "7px",
-        "backgroundColor": "#B07BD7",
-        "cornerRadius": "14px"
-      },
-      {
-        "type": "separator",
-        "margin": "xl"
-      }
-    ],
-    "backgroundColor": "#EADCF4"
-  },
-  "styles": {
-    "footer": {
-      "separator": True
+        "backgroundColor": "#EADCF4"
+    },
+    "styles": {
+        "footer": {
+            "separator": True
+        }
     }
-  }
 }
 
 not_found = {
-  "type": "bubble",
-  "header": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
-        "type": "text",
-        "text": "Coin Not Found",
-        "align": "center",
-        "weight": "bold",
-        "size": "xxl"
-      }
-    ],
-    "backgroundColor": "#FF6961"
-  },
-  "body": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
+    "type": "bubble",
+    "header": {
         "type": "box",
         "layout": "vertical",
         "contents": [
-          {
-            "type": "button",
-            "action": {
-              "type": "message",
-              "label": "Back to Menu",
-              "text": "Menu"
-            },
-            "color": "#333333"
-          }
+            {
+                "type": "text",
+                "text": "Coin Not Found",
+                "align": "center",
+                "weight": "bold",
+                "size": "xxl"
+            }
         ],
-        "backgroundColor": "#FFCDCD",
-        "cornerRadius": "14px",
-        "offsetTop": "7px"
-      },
-      {
-        "type": "separator",
-        "margin": "xl"
-      },
-      {
+        "backgroundColor": "#FF6961"
+    },
+    "body": {
         "type": "box",
         "layout": "vertical",
         "contents": [
-          {
-            "type": "button",
-            "action": {
-              "type": "message",
-              "label": "Choose Other Coins",
-              "text": "Choose Coins"
+            {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "button",
+                        "action": {
+                            "type": "message",
+                            "label": "Back to Menu",
+                            "text": "Menu"
+                        },
+                        "color": "#333333"
+                    }
+                ],
+                "backgroundColor": "#FFCDCD",
+                "cornerRadius": "14px",
+                "offsetTop": "7px"
             },
-            "color": "#333333"
-          }
+            {
+                "type": "separator",
+                "margin": "xl"
+            },
+            {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "button",
+                        "action": {
+                            "type": "message",
+                            "label": "Choose Other Coins",
+                            "text": "Choose Coins"
+                        },
+                        "color": "#333333"
+                    }
+                ],
+                "offsetTop": "7px",
+                "backgroundColor": "#FFCDCD",
+                "cornerRadius": "14px"
+            },
+            {
+                "type": "separator",
+                "margin": "xxl"
+            }
         ],
-        "offsetTop": "7px",
-        "backgroundColor": "#FFCDCD",
-        "cornerRadius": "14px"
-      },
-      {
-        "type": "separator",
-        "margin": "xxl"
-      }
-    ],
-    "backgroundColor": "#FF8585"
-  },
-  "styles": {
-    "footer": {
-      "separator": True
+        "backgroundColor": "#FF8585"
+    },
+    "styles": {
+        "footer": {
+            "separator": True
+        }
     }
-  }
 }
