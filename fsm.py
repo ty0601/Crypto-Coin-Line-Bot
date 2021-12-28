@@ -72,28 +72,24 @@ class TocMachine(GraphMachine):
         reply_token = event.reply_token
         coin_price = get_coin_price(curr_coin)
         if not coin_price:
-            # reply_message = FlexSendMessage("not found", message_json.not_found)
-            print("Not Found!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-            send_text_message(reply_token, "Can't Find!!!")
-            # line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
-            # line_bot_api.reply_message(reply_token, FlexSendMessage("coin data", reply_message))
-        else:
-            # buffer = message_json.price_info
-            # buffer['body']['contents'][0]['contents'][0]['text'] = str(coin_price[0]) + ' - (' + str(
-            #     coin_price[1]) + ')'
-            # buffer['body']['contents'][1]['contents'][1]['contents'][0]['text'] = '$ ' + str(coin_price[2])
-            # buffer['body']['contents'][2]['contents'][1]['contents'][0]['text'] = '$ ' + str(coin_price[3])
-            # buffer['body']['contents'][3]['contents'][1]['contents'][0]['text'] = '$ ' + str(coin_price[4])
-            # buffer['body']['contents'][4]['contents'][1]['contents'][0]['text'] = str(coin_price[5]) + '%'
-            # buffer['body']['contents'][5]['contents'][1]['contents'][0]['text'] = str(coin_price[6]) + '%'
-            # buffer['body']['contents'][6]['contents'][1]['contents'][0]['text'] = str(coin_price[7]) + '%'
-            # buffer['body']['contents'][7]['contents'][1]['contents'][0]['text'] = str(coin_price[8]) + '%'
-            # line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
-            # line_bot_api.reply_message(reply_token, FlexSendMessage("coin price", buffer))
-            print("Found!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
             reply_message = FlexSendMessage("not found", message_json.not_found)
+            print(message_json.not_found)
+            print("Not Found!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
             line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
             line_bot_api.reply_message(reply_token, FlexSendMessage("coin data", reply_message))
+        else:
+            buffer = message_json.price_info
+            buffer['body']['contents'][0]['contents'][0]['text'] = str(coin_price[0]) + ' - (' + str(
+                coin_price[1]) + ')'
+            buffer['body']['contents'][1]['contents'][1]['contents'][0]['text'] = '$ ' + str(coin_price[2])
+            buffer['body']['contents'][2]['contents'][1]['contents'][0]['text'] = '$ ' + str(coin_price[3])
+            buffer['body']['contents'][3]['contents'][1]['contents'][0]['text'] = '$ ' + str(coin_price[4])
+            buffer['body']['contents'][4]['contents'][1]['contents'][0]['text'] = str(coin_price[5]) + '%'
+            buffer['body']['contents'][5]['contents'][1]['contents'][0]['text'] = str(coin_price[6]) + '%'
+            buffer['body']['contents'][6]['contents'][1]['contents'][0]['text'] = str(coin_price[7]) + '%'
+            buffer['body']['contents'][7]['contents'][1]['contents'][0]['text'] = str(coin_price[8]) + '%'
+            line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
+            line_bot_api.reply_message(reply_token, FlexSendMessage("coin price", buffer))
 
     def on_enter_metadata(self, event):
         global curr_coin

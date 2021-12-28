@@ -994,7 +994,7 @@ not_found = {
         "size": "xxl"
       }
     ],
-    "backgroundColor": "#FF4747"
+    "backgroundColor": "#FF6961"
   },
   "body": {
     "type": "box",
