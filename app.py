@@ -33,7 +33,7 @@ machine = TocMachine(
             "trigger": "advance",
             "source": "menu",
             "dest": "choose coins",
-            "conditions": "is_going_to_choose coins",
+            "conditions": "is_going_to_choose_coins",
         },
         {
             "trigger": "advance",
@@ -45,7 +45,7 @@ machine = TocMachine(
             "trigger": "advance",
             "source": "coin_menu",
             "dest": "choose coins",
-            "conditions": "is_going_to_choose coins",
+            "conditions": "is_going_to_choose_coins",
         },
         {
             "trigger": "advance",
