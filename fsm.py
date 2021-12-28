@@ -6,7 +6,7 @@ from transitions.extensions import GraphMachine
 from utils import send_text_message, send_image_url
 from api import get_coin_price, get_coin_metadata
 
-curr_coin = ['', '']
+curr_coin = []
 
 
 class TocMachine(GraphMachine):
@@ -19,6 +19,8 @@ class TocMachine(GraphMachine):
         return text.lower() == "menu"
 
     def is_going_to_coin_menu(self, event):
+        if event.source.user_id not in curr_coin:
+            curr_coin.append(event.source.user_id)
         curr_coin[event.source.user_id] = event.message.text
         return True
 
