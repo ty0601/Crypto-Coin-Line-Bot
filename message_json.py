@@ -995,61 +995,61 @@ not_found = {
       }
     ],
     "backgroundColor": "#FF6961"
-  },
-  "body": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "button",
-            "action": {
-              "type": "message",
-              "label": "Back to Menu",
-              "text": "Menu"
-            },
-            "color": "#333333"
-          }
-        ],
-        "backgroundColor": "#FFCDCD",
-        "cornerRadius": "14px",
-        "offsetTop": "7px"
-      },
-      {
-        "type": "separator",
-        "margin": "xl"
-      },
-      {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "button",
-            "action": {
-              "type": "message",
-              "label": "Choose Other Coins",
-              "text": "Choose Coins"
-            },
-            "color": "#333333"
-          }
-        ],
-        "offsetTop": "7px",
-        "backgroundColor": "#FFCDCD",
-        "cornerRadius": "14px"
-      },
-      {
-        "type": "separator",
-        "margin": "xxl"
-      }
-    ],
-    "backgroundColor": "#FF8585"
-  },
-  "styles": {
-    "footer": {
-      "separator": True
-    }
   }
+  # "body": {
+  #   "type": "box",
+  #   "layout": "vertical",
+  #   "contents": [
+  #     {
+  #       "type": "box",
+  #       "layout": "vertical",
+  #       "contents": [
+  #         {
+  #           "type": "button",
+  #           "action": {
+  #             "type": "message",
+  #             "label": "Back to Menu",
+  #             "text": "Menu"
+  #           },
+  #           "color": "#333333"
+  #         }
+  #       ],
+  #       "backgroundColor": "#FFCDCD",
+  #       "cornerRadius": "14px",
+  #       "offsetTop": "7px"
+  #     },
+  #     {
+  #       "type": "separator",
+  #       "margin": "xl"
+  #     },
+  #     {
+  #       "type": "box",
+  #       "layout": "vertical",
+  #       "contents": [
+  #         {
+  #           "type": "button",
+  #           "action": {
+  #             "type": "message",
+  #             "label": "Choose Other Coins",
+  #             "text": "Choose Coins"
+  #           },
+  #           "color": "#333333"
+  #         }
+  #       ],
+  #       "offsetTop": "7px",
+  #       "backgroundColor": "#FFCDCD",
+  #       "cornerRadius": "14px"
+  #     },
+  #     {
+  #       "type": "separator",
+  #       "margin": "xxl"
+  #     }
+  #   ],
+  #   "backgroundColor": "#FF8585"
+  # },
+  # "styles": {
+  #   "footer": {
+  #     "separator": True
+  #   }
+  # }
 }
