@@ -136,8 +136,9 @@ class TocMachine(GraphMachine):
 
     def on_enter_fsm_graph(self, event):
         reply_token = event.reply_token
-        send_image_url(reply_token,
-                       'https://github.com/ty0601/LINE-BOT/blob/master/img/show-fsm.png?raw=true')
+        reply_message = FlexSendMessage("not found", message_json.fsm_graph)
+        line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
+        line_bot_api.reply_message(reply_token, reply_message)
         self.go_back()
 
     def on_enter_introduction(self, event):

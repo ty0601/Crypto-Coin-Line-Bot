@@ -352,6 +352,68 @@ introduction = {
     }
 }
 
+fsm_graph = {
+    "type": "bubble",
+    "size": "giga",
+    "header": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+            {
+                "type": "separator"
+            },
+            {
+                "type": "image",
+                "url": "https://github.com/ty0601/LINE-BOT/blob/master/fsm.png?raw=true",
+                "size": "full",
+                "aspectRatio": "11:2.3",
+                "flex": 1,
+                "aspectMode": "cover",
+                "gravity": "center",
+                "action": {
+                    "type": "uri",
+                    "label": "action",
+                    "uri": "https://github.com/ty0601/LINE-BOT/blob/master/fsm.png?raw=true"
+                }
+            },
+            {
+                "type": "separator"
+            }
+        ],
+        "flex": 1,
+        "spacing": "xxl"
+    },
+    "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+            {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "button",
+                        "action": {
+                            "type": "message",
+                            "label": "Back to Menu",
+                            "text": "menu"
+                        }
+                    }
+                ],
+                "backgroundColor": "#C8ECC7",
+                "cornerRadius": "15px"
+            }
+        ],
+        "offsetBottom": "15px"
+    },
+    "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [],
+        "backgroundColor": "#50C878"
+    }
+}
+
 choose_coin = {
     "type": "carousel",
     "contents": [
