@@ -19,6 +19,7 @@ class TocMachine(GraphMachine):
         return text.lower() == "menu"
 
     def is_going_to_coin_menu(self, event):
+        global curr_coin
         curr_coin[event.source.user_id] = event.message.text
         return True
 
@@ -53,6 +54,7 @@ class TocMachine(GraphMachine):
         line_bot_api.reply_message(reply_token, reply_message)
 
     def on_enter_choose_coins(self, event):
+        global curr_coin
         curr_coin[event.source.user_id] = ''
         reply_token = event.reply_token
         reply_message = FlexSendMessage("choose coin", message_json.choose_coin)
