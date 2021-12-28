@@ -55,7 +55,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_choose_coins(self, event):
         global curr_coin
-        curr_coin[event.source.user_id] = ''
+        curr_coin[event.source.user_id] = ""
         reply_token = event.reply_token
         reply_message = FlexSendMessage("choose coin", message_json.choose_coin)
         line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
