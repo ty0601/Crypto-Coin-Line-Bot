@@ -37,7 +37,7 @@ machine = TocMachine(
         },
         {
             "trigger": "advance",
-            "source": "choose coins",
+            "source": "choose_coins",
             "dest": "coin_menu",
             "conditions": "is_going_to_coin_menu",
         },

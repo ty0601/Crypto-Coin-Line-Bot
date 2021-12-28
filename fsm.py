@@ -24,7 +24,6 @@ class TocMachine(GraphMachine):
 
     def is_going_to_choose_coins(self, event):
         text = event.message.text
-        print("is going to choose coins")
         return 'coins' in text.lower()
 
     def is_going_to_price(self, event):
@@ -54,7 +53,6 @@ class TocMachine(GraphMachine):
         line_bot_api.reply_message(reply_token, reply_message)
 
     def on_enter_choose_coins(self, event):
-        print("show coins")
         global curr_coin
         curr_coin = ''
         reply_token = event.reply_token
