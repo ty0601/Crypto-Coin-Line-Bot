@@ -6,7 +6,7 @@ from transitions.extensions import GraphMachine
 from utils import send_text_message, send_image_url
 from api import get_coin_price, get_coin_metadata
 
-curr_coin = []
+curr_coin = {}
 
 
 class TocMachine(GraphMachine):
@@ -19,11 +19,7 @@ class TocMachine(GraphMachine):
         return text.lower() == "menu"
 
     def is_going_to_coin_menu(self, event):
-        if event.source.user_id not in curr_coin:
-            curr_coin.append(event.source.user_id)
-            curr_coin[event.source.user_id] = event.message.text
-        else:
-            curr_coin[event.source.user_id][0] = event.message.text
+        curr_coin[event.source.user_id] = event.message.text;
         return True
 
     def is_going_to_choose_coins(self, event):
@@ -57,10 +53,7 @@ class TocMachine(GraphMachine):
         line_bot_api.reply_message(reply_token, reply_message)
 
     def on_enter_choose_coins(self, event):
-        if event.source.user_id not in curr_coin:
-            curr_coin.append(event.source.user_id)
-        else:
-            curr_coin[event.source.user_id] = ''
+        curr_coin[event.source.user_id] = ''
         reply_token = event.reply_token
         reply_message = FlexSendMessage("choose coin", message_json.choose_coin)
         line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
