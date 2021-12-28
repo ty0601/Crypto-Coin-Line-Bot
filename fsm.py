@@ -72,9 +72,11 @@ class TocMachine(GraphMachine):
         reply_token = event.reply_token
         coin_price = get_coin_price(curr_coin)
         if not coin_price:
-            reply_message = FlexSendMessage("not found", message_json.not_found)
-            line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
-            line_bot_api.reply_message(reply_token, FlexSendMessage("coin data", reply_message))
+            # reply_message = FlexSendMessage("not found", message_json.not_found)
+            print("Not Found!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+            send_text_message(reply_token, "Can't Find!!!")
+            # line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
+            # line_bot_api.reply_message(reply_token, FlexSendMessage("coin data", reply_message))
         else:
             buffer = message_json.price_info
             buffer['body']['contents'][0]['contents'][0]['text'] = str(coin_price[0]) + ' - (' + str(
@@ -95,32 +97,38 @@ class TocMachine(GraphMachine):
         coin_data = get_coin_metadata(curr_coin)
         if not coin_data:
             reply_message = FlexSendMessage("not found", message_json.not_found)
+            print("Not Found!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
             line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
             line_bot_api.reply_message(reply_token, FlexSendMessage("coin data", reply_message))
-            print("not found")
         else:
             buffer = message_json.metadata
             buffer['hero']['url'] = str(coin_data[0])
             buffer['body']['contents'][0]['text'] = str(coin_data[1]) + ' - (' + str(coin_data[2]) + ')'
             if not coin_data[3]:
-                buffer['body']['contents'][1]['contents'][0]['contents'][1]['contents'][0]['text'] = "CoinMarketCap Get More Detail"
-                buffer['body']['contents'][1]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = "https://coinmarketcap.com/"
+                buffer['body']['contents'][1]['contents'][0]['contents'][1]['contents'][0][
+                    'text'] = "CoinMarketCap Get More Detail"
+                buffer['body']['contents'][1]['contents'][0]['contents'][1]['contents'][0]['action'][
+                    'uri'] = "https://coinmarketcap.com/"
             else:
                 buffer['body']['contents'][1]['contents'][0]['contents'][1]['contents'][0]['text'] = str(
                     coin_data[3][0])
                 buffer['body']['contents'][1]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = str(
                     coin_data[3][0])
             if not coin_data[4]:
-                buffer['body']['contents'][2]['contents'][0]['contents'][1]['contents'][0]['text'] = "CoinMarketCap Get More Detail"
-                buffer['body']['contents'][2]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = "https://coinmarketcap.com/"
+                buffer['body']['contents'][2]['contents'][0]['contents'][1]['contents'][0][
+                    'text'] = "CoinMarketCap Get More Detail"
+                buffer['body']['contents'][2]['contents'][0]['contents'][1]['contents'][0]['action'][
+                    'uri'] = "https://coinmarketcap.com/"
             else:
                 buffer['body']['contents'][2]['contents'][0]['contents'][1]['contents'][0]['text'] = str(
                     coin_data[4][0])
                 buffer['body']['contents'][2]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = str(
                     coin_data[4][0])
             if not coin_data[5]:
-                buffer['body']['contents'][3]['contents'][0]['contents'][1]['contents'][0]['text'] = "CoinMarketCap Get More Detail"
-                buffer['body']['contents'][3]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = "https://coinmarketcap.com/"
+                buffer['body']['contents'][3]['contents'][0]['contents'][1]['contents'][0][
+                    'text'] = "CoinMarketCap Get More Detail"
+                buffer['body']['contents'][3]['contents'][0]['contents'][1]['contents'][0]['action'][
+                    'uri'] = "https://coinmarketcap.com/"
             else:
                 buffer['body']['contents'][3]['contents'][0]['contents'][1]['contents'][0]['text'] = str(
                     coin_data[5][0])
