@@ -103,3 +103,5 @@ def create_machine():
         auto_transitions=False,
         show_conditions=True,
     )
+
+    return machine
