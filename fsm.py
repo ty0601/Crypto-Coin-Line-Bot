@@ -6,9 +6,10 @@ from transitions.extensions import GraphMachine
 from utils import send_text_message, send_image_url
 from api import get_coin_price, get_coin_metadata
 
+curr_coin = []
+
 
 class TocMachine(GraphMachine):
-    curr_coin = []
 
     def __init__(self, **machine_configs):
         self.machine = GraphMachine(model=self, **machine_configs)
