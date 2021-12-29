@@ -3,7 +3,7 @@ import message_json
 from linebot import LineBotApi
 from linebot.models import TextSendMessage, FlexSendMessage
 from transitions.extensions import GraphMachine
-from utils import send_text_message, send_image_url
+from utils import send_flex_message
 from api import get_coin_price, get_coin_metadata
 
 curr_coin = {}
@@ -49,32 +49,36 @@ class TocMachine(GraphMachine):
 
     def on_enter_menu(self, event):
         reply_token = event.reply_token
-        reply_message = FlexSendMessage("open menu", message_json.main_menu)
-        line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
-        line_bot_api.reply_message(reply_token, reply_message)
+        # reply_message = FlexSendMessage("open menu", message_json.main_menu)
+        # line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
+        # line_bot_api.reply_message(reply_token, reply_message)
+        send_flex_message(reply_token, "open menu", message_json.main_menu)
 
     def on_enter_choose_coins(self, event):
         global curr_coin
         curr_coin[event.source.user_id] = ''
         reply_token = event.reply_token
-        reply_message = FlexSendMessage("choose coin", message_json.choose_coin)
-        line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
-        line_bot_api.reply_message(reply_token, reply_message)
+        # reply_message = FlexSendMessage("choose coin", message_json.choose_coin)
+        # line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
+        # line_bot_api.reply_message(reply_token, reply_message)
+        send_flex_message(reply_token, "choose coin", message_json.choose_coin)
 
     def on_enter_coin_menu(self, event):
         reply_token = event.reply_token
-        reply_message = FlexSendMessage("coin menu", message_json.coin_menu)
-        line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
-        line_bot_api.reply_message(reply_token, reply_message)
+        # reply_message = FlexSendMessage("coin menu", message_json.coin_menu)
+        # line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
+        # line_bot_api.reply_message(reply_token, reply_message)
+        send_flex_message(reply_token, "coin menu", message_json.coin_menu)
 
     def on_enter_price(self, event):
         global curr_coin
         reply_token = event.reply_token
         coin_price = get_coin_price(curr_coin[event.source.user_id])
         if not coin_price:
-            reply_message = FlexSendMessage("not found", message_json.not_found_coin_menu)
-            line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
-            line_bot_api.reply_message(reply_token, reply_message)
+            # reply_message = FlexSendMessage("not found", message_json.not_found_coin_menu)
+            # line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
+            # line_bot_api.reply_message(reply_token, reply_message)
+            send_flex_message(reply_token, "not found", message_json.not_found_coin_menu)
         else:
             buffer = message_json.price_info
             buffer['body']['contents'][0]['contents'][0]['text'] = str(coin_price[0]) + ' - (' + str(
@@ -86,17 +90,19 @@ class TocMachine(GraphMachine):
             buffer['body']['contents'][5]['contents'][1]['contents'][0]['text'] = str(coin_price[6]) + '%'
             buffer['body']['contents'][6]['contents'][1]['contents'][0]['text'] = str(coin_price[7]) + '%'
             buffer['body']['contents'][7]['contents'][1]['contents'][0]['text'] = str(coin_price[8]) + '%'
-            line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
-            line_bot_api.reply_message(reply_token, FlexSendMessage("coin price", buffer))
+            # line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
+            # line_bot_api.reply_message(reply_token, FlexSendMessage("coin price", buffer))
+            send_flex_message(reply_token, "coin price", buffer)
 
     def on_enter_metadata(self, event):
         global curr_coin
         reply_token = event.reply_token
         coin_data = get_coin_metadata(curr_coin[event.source.user_id])
         if not coin_data:
-            reply_message = FlexSendMessage("not found", message_json.not_found_coin_menu)
-            line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
-            line_bot_api.reply_message(reply_token, reply_message)
+            # reply_message = FlexSendMessage("not found", message_json.not_found_coin_menu)
+            # line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
+            # line_bot_api.reply_message(reply_token, reply_message)
+            send_flex_message(reply_token, "not found", message_json.not_found_coin_menu)
         else:
             buffer = message_json.metadata
             buffer['hero']['url'] = str(coin_data[0])
@@ -131,26 +137,30 @@ class TocMachine(GraphMachine):
                     coin_data[5][0])
                 buffer['body']['contents'][3]['contents'][0]['contents'][1]['contents'][0]['action']['uri'] = str(
                     coin_data[5][0])
-            line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
-            line_bot_api.reply_message(reply_token, FlexSendMessage("coin data", buffer))
+            # line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
+            # line_bot_api.reply_message(reply_token, FlexSendMessage("coin data", buffer))
+            send_flex_message(reply_token, "coin data", buffer)
 
     def on_enter_fsm_graph(self, event):
         reply_token = event.reply_token
-        reply_message = FlexSendMessage("not found", message_json.fsm_graph)
-        line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
-        line_bot_api.reply_message(reply_token, reply_message)
+        # reply_message = FlexSendMessage("not found", message_json.fsm_graph)
+        # line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
+        # line_bot_api.reply_message(reply_token, reply_message)
+        send_flex_message(reply_token, "not found", message_json.fsm_graph)
         self.go_back()
 
     def on_enter_introduction(self, event):
         reply_token = event.reply_token
-        reply_message = FlexSendMessage("open menu", message_json.introduction)
-        line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
-        line_bot_api.reply_message(reply_token, reply_message)
+        # reply_message = FlexSendMessage("open menu", message_json.introduction)
+        # line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
+        # line_bot_api.reply_message(reply_token, reply_message)
+        send_flex_message(reply_token, "open menu", message_json.introduction)
         self.go_back()
 
     def on_enter_cancel(self, event):
         reply_token = event.reply_token
-        reply_message = FlexSendMessage(reply_token, message_json.cancel)
-        line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
-        line_bot_api.reply_message(reply_token, reply_message)
+        # reply_message = FlexSendMessage("cancel", message_json.cancel)
+        # line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
+        # line_bot_api.reply_message(reply_token, reply_message)
+        send_flex_message(reply_token, "cancel", message_json.cancel)
         self.go_back()
