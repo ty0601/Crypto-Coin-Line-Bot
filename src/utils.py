@@ -16,4 +16,3 @@ def send_text_message(reply_token, text):
     line_bot_api.reply_message(reply_token, TextSendMessage(text=text))
 
     return "OK"
-

@@ -32,7 +32,6 @@ def get_all_coins_price():
     return data
 
 
-
 def get_coin_metadata(coin):
     parameters_metadata = {
         'symbol': coin

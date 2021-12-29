@@ -1,7 +1,7 @@
 import os
 import sys
 
-from flask import Flask, jsonify, request, abort, send_file
+from flask import Flask, request, abort, send_file
 from dotenv import load_dotenv
 from linebot import LineBotApi, WebhookParser
 from linebot.exceptions import InvalidSignatureError
@@ -90,7 +90,7 @@ def webhook_handler():
 
 @app.route("/show-fsm", methods=["GET"])
 def show_fsm():
-    hash_machines.get_graph().draw("fsm.png", prog="dot", format="png")
+    a.get_graph().draw("fsm.png", prog="dot", format="png")
     return send_file("../fsm.png", mimetype="image/png")
 
 
