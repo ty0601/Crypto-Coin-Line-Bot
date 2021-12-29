@@ -17,7 +17,7 @@ class TocMachine(GraphMachine):
 
     def is_going_to_coin_menu(self, event):
         global curr_coin
-        curr_coin[event.source.user_id] = event.message.text
+        curr_coin[event.source.user_id] = event.message.text.lower()
         return True
 
     def is_going_to_choose_coins(self, event):
