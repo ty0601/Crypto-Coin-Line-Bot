@@ -17,10 +17,3 @@ def send_text_message(reply_token, text):
 
     return "OK"
 
-
-def send_image_url(reply_token, img_url):
-    pass
-
-
-def send_button_message(reply_token, text, buttons):
-    pass

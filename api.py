@@ -1,7 +1,4 @@
 import requests
-import os
-
-from utils import send_text_message
 
 price_url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
 metadata_url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/info'
