@@ -364,7 +364,7 @@ fsm_graph = {
             },
             {
                 "type": "image",
-                "url": "https://github.com/ty0601/LINE-BOT/blob/master/fsm.png?raw=true",
+                "url": "https://i.imgur.com/TXUFCBH.png",
                 "size": "full",
                 "aspectRatio": "11:2.3",
                 "flex": 1,
@@ -373,7 +373,7 @@ fsm_graph = {
                 "action": {
                     "type": "uri",
                     "label": "action",
-                    "uri": "https://github.com/ty0601/LINE-BOT/blob/master/fsm.png?raw=true"
+                    "uri": "https://i.imgur.com/TXUFCBH.png"
                 }
             },
             {
