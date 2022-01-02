@@ -1,28 +1,15 @@
-# Crypto Coin Line Bot 
-- data from Coin Market Cap
+# TOC Project 2020
 
-## Introduction
-Bot for searching crypto coin, it can show the following items
-- Real-time price
-- 1hr, 24hr, 7d, 30d changing price
-- Metadata
-- Support multiple users using at the same time
+[![Maintainability](https://api.codeclimate.com/v1/badges/dc7fa47fcd809b99d087/maintainability)](https://codeclimate.com/github/NCKU-CCS/TOC-Project-2020/maintainability)
 
-## Usage
-##### Enter 'menu' to start the bot
-  - ![menu](./img/menu.png)
-##### Enter 'introduction' or press the introduction button 
-  - ![introduction](./img/intro.png)
-##### Enter 'fsm' or press the introduction button
-  - ![fsm](./img/show-fsm.png)
-##### In fsm graph, you can press the image to the image website
-##### Enter 'crypto coins' or press the introduction button to choose coins
-  - ![choose_coin](./img/choose_coin.png)
-##### Enter 'price' or press the introduction button to get price detail
-  - ![price](./img/price.png)
-##### Enter 'metadata' or press the introduction button to get metadata
-  - ![price](./img/metadata.png)
+[![Known Vulnerabilities](https://snyk.io/test/github/NCKU-CCS/TOC-Project-2020/badge.svg)](https://snyk.io/test/github/NCKU-CCS/TOC-Project-2020)
 
+
+Template Code for TOC Project 2020
+
+A Line bot based on a finite state machine
+
+More details in the [Slides](https://hackmd.io/@TTW/ToC-2019-Project#) and [FAQ](https://hackmd.io/s/B1Xw7E8kN)
 
 ## Setup
 
@@ -85,6 +72,18 @@ Or You can use [servo](http://serveo.net/) to expose local servers to the intern
 
 ## Finite State Machine
 ![fsm](./img/show-fsm.png)
+
+## Usage
+The initial state is set to `user`.
+
+Every time `user` state is triggered to `advance` to another state, it will `go_back` to `user` state after the bot replies corresponding message.
+
+* user
+	* Input: "go to state1"
+		* Reply: "I'm entering state1"
+
+	* Input: "go to state2"
+		* Reply: "I'm entering state2"
 
 ## Deploy
 Setting to deploy webhooks on Heroku.
