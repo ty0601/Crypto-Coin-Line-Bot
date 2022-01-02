@@ -11,7 +11,7 @@ headers = {
 def get_all_coins_price():
     parameters = {
         'start': '1',
-        'limit': '100',
+        'limit': '500',
         'convert': 'USD'
     }
     coin_json = requests.get(price_url, params=parameters, headers=headers).json()
